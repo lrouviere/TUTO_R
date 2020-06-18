@@ -4,3 +4,4 @@
 .Ruserdata
 *.Rmd
 *.tex
+_bookdown_files/*
