@@ -134,14 +134,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Présentation</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>2</b> Literature</a></li>
-<li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
-<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>4.1</b> Example one</a></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>4.2</b> Example two</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-script"><i class="fa fa-check"></i><b>1.1</b> R Script</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>1.2</b> Packages</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#markdown"><i class="fa fa-check"></i><b>1.3</b> Markdown</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#syntaxe"><i class="fa fa-check"></i><b>1.3.1</b> Syntaxe</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#les-chunks"><i class="fa fa-check"></i><b>1.3.2</b> Les chunks</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#notebook"><i class="fa fa-check"></i><b>1.3.3</b> Notebook</a></li>
+<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#diaporama-r"><i class="fa fa-check"></i><b>1.3.4</b> Diaporama R</a></li>
+<li class="chapter" data-level="1.3.5" data-path="intro.html"><a href="intro.html#exemples-de-styles-de-documents-markdown"><i class="fa fa-check"></i><b>1.3.5</b> Exemples de styles de documents markdown</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>5</b> Final Words</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>2</b> Ggplot</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -180,7 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Cartes dynamiques</strong> avec <code>leaflet</code></li>
 <li><strong>Régression</strong> : ajustement de modèles, formules, prévisions…</li>
 </ul>
-<p>On pourra trouver des supports de cours ainsi que les données utilisées à l’adresse suivante <a href="https://lrouviere.github.io/stat_grand_dim/" class="uri">https://lrouviere.github.io/stat_grand_dim/</a>.</p>
+<p>On pourra trouver des supports de cours ainsi que les données utilisées à l’adresse suivante <a href="https://lrouviere.github.io/intro_R/" class="uri">https://lrouviere.github.io/intro_R/</a>.</p>
 
 </div>
             </section>
@@ -215,7 +219,7 @@ gitbook.start({
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
-"theme": "white",
+"theme": "sepia",
 "family": "sans",
 "size": 2
 },
@@ -234,22 +238,31 @@ gitbook.start({
 "download": ["TUTO_R.pdf", "TUTO_R.epub"],
 "toc": {
 "collapse": "subsection",
-"fontsettings": {
-"theme": "white",
-"size": 2,
-"family": "sans"
-},
 "sharing": {
 "facebook": true,
 "github": true,
 "twitter": true
 }
 },
-"highlight": "default"
+"highlight": "tango"
 });
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
