@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 4 1. Importer des données | Introduction à R</title>
+  <meta name="description" content="Chapitre 4 1. Importer des données | Introduction à R" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 4 1. Importer des données | Introduction à R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 4 1. Importer des données | Introduction à R" />
+  
+  
+  
+
+<meta name="author" content="Laurent Rouvière" />
+
+
+<meta name="date" content="2020-06-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dplyr.html"/>
+<link rel="next" href="ggplot.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="/Users/laurent/Dropbox/FICHIERS_STYLE/style_bdown.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction à R<br> <br> L. Rouvière</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Présentation</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-script"><i class="fa fa-check"></i><b>1.1</b> R Script</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>1.2</b> Packages</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#markdown"><i class="fa fa-check"></i><b>1.3</b> Markdown</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#syntaxe"><i class="fa fa-check"></i><b>1.3.1</b> Syntaxe</a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#les-chunks"><i class="fa fa-check"></i><b>1.3.2</b> Les chunks</a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#notebook"><i class="fa fa-check"></i><b>1.3.3</b> Notebook</a></li>
+<li class="chapter" data-level="1.3.4" data-path="intro.html"><a href="intro.html#diaporama-r"><i class="fa fa-check"></i><b>1.3.4</b> Diaporama R</a></li>
+<li class="chapter" data-level="1.3.5" data-path="intro.html"><a href="intro.html#exemples-de-styles-de-documents-markdown"><i class="fa fa-check"></i><b>1.3.5</b> Exemples de styles de documents markdown</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="objetsR.html"><a href="objetsR.html"><i class="fa fa-check"></i><b>2</b> Les objets R</a><ul>
+<li class="chapter" data-level="2.1" data-path="objetsR.html"><a href="objetsR.html#création-dobjets"><i class="fa fa-check"></i><b>2.1</b> Création d’objets</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="objetsR.html"><a href="objetsR.html#numérique"><i class="fa fa-check"></i><b>2.1.1</b> Numérique</a></li>
+<li class="chapter" data-level="2.1.2" data-path="objetsR.html"><a href="objetsR.html#caractère"><i class="fa fa-check"></i><b>2.1.2</b> Caractère</a></li>
+<li class="chapter" data-level="2.1.3" data-path="objetsR.html"><a href="objetsR.html#facteur"><i class="fa fa-check"></i><b>2.1.3</b> Facteur</a></li>
+<li class="chapter" data-level="2.1.4" data-path="objetsR.html"><a href="objetsR.html#logique-booléen"><i class="fa fa-check"></i><b>2.1.4</b> Logique (Booléen)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="objetsR.html"><a href="objetsR.html#vecteur"><i class="fa fa-check"></i><b>2.2</b> Vecteur</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="objetsR.html"><a href="objetsR.html#sélectionner-une-partie-dun-vecteur"><i class="fa fa-check"></i><b>2.2.1</b> Sélectionner une partie d’un vecteur</a></li>
+<li class="chapter" data-level="2.2.2" data-path="objetsR.html"><a href="objetsR.html#opérations-sur-les-vecteurs"><i class="fa fa-check"></i><b>2.2.2</b> Opérations sur les vecteurs</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="objetsR.html"><a href="objetsR.html#matrices"><i class="fa fa-check"></i><b>2.3</b> Matrices</a></li>
+<li class="chapter" data-level="2.4" data-path="objetsR.html"><a href="objetsR.html#listes"><i class="fa fa-check"></i><b>2.4</b> Listes</a></li>
+<li class="chapter" data-level="2.5" data-path="objetsR.html"><a href="objetsR.html#dataframe"><i class="fa fa-check"></i><b>2.5</b> Dataframe</a></li>
+<li class="chapter" data-level="2.6" data-path="objetsR.html"><a href="objetsR.html#quelqus-fonctions-importantes"><i class="fa fa-check"></i><b>2.6</b> Quelqus fonctions importantes</a></li>
+<li class="chapter" data-level="2.7" data-path="objetsR.html"><a href="objetsR.html#exercices-complémentaires"><i class="fa fa-check"></i><b>2.7</b> Exercices complémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3</b> Manipuler les données avec dplyr</a></li>
+<li class="chapter" data-level="4" data-path="importer-des-données.html"><a href="importer-des-données.html"><i class="fa fa-check"></i><b>4</b> 1. Importer des données</a></li>
+<li class="chapter" data-level="5" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>5</b> Ggplot</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction à R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="importer-des-données" class="section level1">
+<h1><span class="header-section-number">Chapitre 4</span> 1. Importer des données</h1>
+<p>Les fonction <strong>read.table</strong> et <strong>read.csv</strong> sont les fonctions standards de <em>R</em> pour importer des données à partir de fichiers <em>.txt</em> ou <em>.csv</em>. Il est important de bien gérer le <code>chemin du répertoire</code>ou se trouve le fichier. On peut le spécifier explicitement ou utiliser des fonctions comme <strong>file.path</strong> :</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="importer-des-données.html#cb68-1"></a><span class="op">&gt;</span><span class="st"> </span>path &lt;-<span class="st"> </span><span class="kw">file.path</span>(<span class="st">&quot;data/&quot;</span>, <span class="st">&quot;piscines.csv&quot;</span>) <span class="co">#premier : répertoire, deuxième : fichier</span></span>
+<span id="cb68-2"><a href="importer-des-données.html#cb68-2"></a><span class="op">&gt;</span><span class="st"> </span>piscines &lt;-<span class="st"> </span><span class="kw">read.csv</span>(path)</span>
+<span id="cb68-3"><a href="importer-des-données.html#cb68-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">class</span>(piscines)</span>
+<span id="cb68-4"><a href="importer-des-données.html#cb68-4"></a>[<span class="dv">1</span>] <span class="st">&quot;data.frame&quot;</span></span>
+<span id="cb68-5"><a href="importer-des-données.html#cb68-5"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(piscines)</span>
+<span id="cb68-6"><a href="importer-des-données.html#cb68-6"></a>     Name             Address             Latitude        Longitude    </span>
+<span id="cb68-7"><a href="importer-des-données.html#cb68-7"></a> Length<span class="op">:</span><span class="dv">20</span>          Length<span class="op">:</span><span class="dv">20</span>          Min.   <span class="op">:-</span><span class="fl">27.61</span>   Min.   <span class="op">:</span><span class="fl">152.9</span>  </span>
+<span id="cb68-8"><a href="importer-des-données.html#cb68-8"></a> Class <span class="op">:</span>character   Class <span class="op">:</span>character   1st Qu.<span class="op">:-</span><span class="fl">27.55</span>   1st Qu.<span class="op">:</span><span class="fl">153.0</span>  </span>
+<span id="cb68-9"><a href="importer-des-données.html#cb68-9"></a> Mode  <span class="op">:</span>character   Mode  <span class="op">:</span>character   Median <span class="op">:-</span><span class="fl">27.49</span>   Median <span class="op">:</span><span class="fl">153.0</span>  </span>
+<span id="cb68-10"><a href="importer-des-données.html#cb68-10"></a>                                       Mean   <span class="op">:-</span><span class="fl">27.49</span>   Mean   <span class="op">:</span><span class="fl">153.0</span>  </span>
+<span id="cb68-11"><a href="importer-des-données.html#cb68-11"></a>                                       3rd Qu.<span class="op">:-</span><span class="fl">27.45</span>   3rd Qu.<span class="op">:</span><span class="fl">153.1</span>  </span>
+<span id="cb68-12"><a href="importer-des-données.html#cb68-12"></a>                                       Max.   <span class="op">:-</span><span class="fl">27.31</span>   Max.   <span class="op">:</span><span class="fl">153.2</span>  </span></code></pre></div>
+<p>Il existe plusieurs <strong>options importantes</strong> dans <strong>read.csv</strong>, notamment</p>
+<ul>
+<li><strong>sep</strong> : le caractère de séparation (espace, virgule…)</li>
+<li><strong>dec</strong> : le caractère pour le séparateur décimal (vigule, point…)</li>
+<li><strong>header</strong> : logique pour indiquer si le nom des variables est spécifié à la première ligne du fichier</li>
+<li><strong>row.names</strong> : vecteurs des identifiants (si besoin)</li>
+<li><strong>na.strings</strong> : vecteur de caractères pour repérer les données manquantes.</li>
+<li>…</li>
+</ul>
+<p>Le package <strong>readr</strong> du tidyverse propose d’autres fonctions comme <strong>read_csv</strong> ou <strong>read_delim</strong>. Il n’y a pas de différences énormes avec les fonctions standards, les objets créés sont des <strong>tibbles</strong> et plus des <strong>dataframes</strong> (même si les tibbles sont des dataframes…). Par exemple</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="importer-des-données.html#cb69-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(readr)</span>
+<span id="cb69-2"><a href="importer-des-données.html#cb69-2"></a><span class="op">&gt;</span><span class="st"> </span>piscines &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/piscines.csv&quot;</span>)</span>
+<span id="cb69-3"><a href="importer-des-données.html#cb69-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(piscines)</span>
+<span id="cb69-4"><a href="importer-des-données.html#cb69-4"></a>     Name             Address             Latitude        Longitude    </span>
+<span id="cb69-5"><a href="importer-des-données.html#cb69-5"></a> Length<span class="op">:</span><span class="dv">20</span>          Length<span class="op">:</span><span class="dv">20</span>          Min.   <span class="op">:-</span><span class="fl">27.61</span>   Min.   <span class="op">:</span><span class="fl">152.9</span>  </span>
+<span id="cb69-6"><a href="importer-des-données.html#cb69-6"></a> Class <span class="op">:</span>character   Class <span class="op">:</span>character   1st Qu.<span class="op">:-</span><span class="fl">27.55</span>   1st Qu.<span class="op">:</span><span class="fl">153.0</span>  </span>
+<span id="cb69-7"><a href="importer-des-données.html#cb69-7"></a> Mode  <span class="op">:</span>character   Mode  <span class="op">:</span>character   Median <span class="op">:-</span><span class="fl">27.49</span>   Median <span class="op">:</span><span class="fl">153.0</span>  </span>
+<span id="cb69-8"><a href="importer-des-données.html#cb69-8"></a>                                       Mean   <span class="op">:-</span><span class="fl">27.49</span>   Mean   <span class="op">:</span><span class="fl">153.0</span>  </span>
+<span id="cb69-9"><a href="importer-des-données.html#cb69-9"></a>                                       3rd Qu.<span class="op">:-</span><span class="fl">27.45</span>   3rd Qu.<span class="op">:</span><span class="fl">153.1</span>  </span>
+<span id="cb69-10"><a href="importer-des-données.html#cb69-10"></a>                                       Max.   <span class="op">:-</span><span class="fl">27.31</span>   Max.   <span class="op">:</span><span class="fl">153.2</span>  </span>
+<span id="cb69-11"><a href="importer-des-données.html#cb69-11"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">class</span>(piscines)</span>
+<span id="cb69-12"><a href="importer-des-données.html#cb69-12"></a>[<span class="dv">1</span>] <span class="st">&quot;spec_tbl_df&quot;</span> <span class="st">&quot;tbl_df&quot;</span>      <span class="st">&quot;tbl&quot;</span>         <span class="st">&quot;data.frame&quot;</span> </span></code></pre></div>
+<p>Enfin si on n’est pas très à l’aise avec ces fonctions, on pourra utiliser le bouton <code>Import Dataset</code> qui se trouve dans l’onglet <code>Environment</code> de <strong>RStudio</strong>. Cette manière de procéder fonctionne pour des jeux de données simples, si les bases de données contient trop de spécificités on devra souvent utiliser les fonctions avec les bonnes options.</p>
+
+<div class="exercise">
+<span id="exr:exo-import1" class="exercise"><strong>Exercice 4.1  (Importation d’un jeu de données)  </strong></span>
+</div>
+
+<ol style="list-style-type: decimal">
+<li><p>Importer les données qui se trouvent dans le fichier <em>mydata.csv</em>. On utilisera la fonction <strong>read.csv</strong> avec les options par défaut.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="importer-des-données.html#cb70-1"></a><span class="op">&gt;</span><span class="st"> </span>data1 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/mydata.csv&quot;</span>)</span>
+<span id="cb70-2"><a href="importer-des-données.html#cb70-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(data1)</span>
+<span id="cb70-3"><a href="importer-des-données.html#cb70-3"></a> surname.height.weight.feet_size.sex</span>
+<span id="cb70-4"><a href="importer-des-données.html#cb70-4"></a> Length<span class="op">:</span><span class="dv">3</span>                           </span>
+<span id="cb70-5"><a href="importer-des-données.html#cb70-5"></a> Class <span class="op">:</span>character                   </span>
+<span id="cb70-6"><a href="importer-des-données.html#cb70-6"></a> Mode  <span class="op">:</span>character                   </span></code></pre></div></li>
+<li><p>Importer <strong>correctement</strong> les données qui se trouvent dans le fichier <em>mydata.csv</em> (utiliser <em>sep</em>, <em>dec</em> et <em>row.names</em>).</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="importer-des-données.html#cb71-1"></a><span class="op">&gt;</span><span class="st"> </span>data1 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/mydata.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;;&quot;</span>,<span class="dt">dec=</span><span class="kw">c</span>(<span class="st">&quot;.&quot;</span>),<span class="dt">row.names =</span> <span class="dv">1</span>)</span>
+<span id="cb71-2"><a href="importer-des-données.html#cb71-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(data1)</span>
+<span id="cb71-3"><a href="importer-des-données.html#cb71-3"></a>     height          weight        feet_size         sex           </span>
+<span id="cb71-4"><a href="importer-des-données.html#cb71-4"></a> Min.   <span class="op">:</span><span class="fl">158.0</span>   Min.   <span class="op">:</span><span class="fl">72.00</span>   Min.   <span class="op">:</span><span class="fl">8.000</span>   Length<span class="op">:</span><span class="dv">3</span>          </span>
+<span id="cb71-5"><a href="importer-des-données.html#cb71-5"></a> 1st Qu.<span class="op">:</span><span class="fl">166.8</span>   1st Qu.<span class="op">:</span><span class="fl">75.00</span>   1st Qu.<span class="op">:</span><span class="fl">8.250</span>   Class <span class="op">:</span>character  </span>
+<span id="cb71-6"><a href="importer-des-données.html#cb71-6"></a> Median <span class="op">:</span><span class="fl">175.5</span>   Median <span class="op">:</span><span class="fl">78.00</span>   Median <span class="op">:</span><span class="fl">8.500</span>   Mode  <span class="op">:</span>character  </span>
+<span id="cb71-7"><a href="importer-des-données.html#cb71-7"></a> Mean   <span class="op">:</span><span class="fl">172.5</span>   Mean   <span class="op">:</span><span class="fl">76.67</span>   Mean   <span class="op">:</span><span class="fl">8.667</span>                     </span>
+<span id="cb71-8"><a href="importer-des-données.html#cb71-8"></a> 3rd Qu.<span class="op">:</span><span class="fl">179.8</span>   3rd Qu.<span class="op">:</span><span class="fl">79.00</span>   3rd Qu.<span class="op">:</span><span class="fl">9.000</span>                     </span>
+<span id="cb71-9"><a href="importer-des-données.html#cb71-9"></a> Max.   <span class="op">:</span><span class="fl">184.0</span>   Max.   <span class="op">:</span><span class="fl">80.00</span>   Max.   <span class="op">:</span><span class="fl">9.500</span>                     </span></code></pre></div></li>
+<li><p>Importer les données qui se trouvent dans le fichier <em>mydata2.csv</em>.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="importer-des-données.html#cb72-1"></a><span class="op">&gt;</span><span class="st"> </span>data2 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/mydata2.csv&quot;</span>)</span>
+<span id="cb72-2"><a href="importer-des-données.html#cb72-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(data2)</span>
+<span id="cb72-3"><a href="importer-des-données.html#cb72-3"></a> height.weight.size.sex</span>
+<span id="cb72-4"><a href="importer-des-données.html#cb72-4"></a> Length<span class="op">:</span><span class="dv">4</span>              </span>
+<span id="cb72-5"><a href="importer-des-données.html#cb72-5"></a> Class <span class="op">:</span>character      </span>
+<span id="cb72-6"><a href="importer-des-données.html#cb72-6"></a> Mode  <span class="op">:</span>character      </span></code></pre></div></li>
+<li><p>Ce fichier contient des données manquantes (identifiées par un point). A l’aide de <strong>na.strings</strong>, refaire l’importation en identifiant les données manquantes.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="importer-des-données.html#cb73-1"></a><span class="op">&gt;</span><span class="st"> </span>data2 &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/mydata2.csv&quot;</span>,<span class="dt">sep=</span><span class="st">&quot;&quot;</span>,<span class="dt">na.strings =</span> <span class="st">&quot;.&quot;</span>)</span>
+<span id="cb73-2"><a href="importer-des-données.html#cb73-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(data2)</span>
+<span id="cb73-3"><a href="importer-des-données.html#cb73-3"></a>     height          weight           size          sex           </span>
+<span id="cb73-4"><a href="importer-des-données.html#cb73-4"></a> Min.   <span class="op">:</span><span class="fl">175.5</span>   Min.   <span class="op">:</span><span class="fl">72.00</span>   Min.   <span class="op">:</span><span class="fl">7.00</span>   Length<span class="op">:</span><span class="dv">4</span>          </span>
+<span id="cb73-5"><a href="importer-des-données.html#cb73-5"></a> 1st Qu.<span class="op">:</span><span class="fl">176.8</span>   1st Qu.<span class="op">:</span><span class="fl">75.00</span>   1st Qu.<span class="op">:</span><span class="fl">7.75</span>   Class <span class="op">:</span>character  </span>
+<span id="cb73-6"><a href="importer-des-données.html#cb73-6"></a> Median <span class="op">:</span><span class="fl">178.0</span>   Median <span class="op">:</span><span class="fl">78.00</span>   Median <span class="op">:</span><span class="fl">8.25</span>   Mode  <span class="op">:</span>character  </span>
+<span id="cb73-7"><a href="importer-des-données.html#cb73-7"></a> Mean   <span class="op">:</span><span class="fl">179.2</span>   Mean   <span class="op">:</span><span class="fl">76.67</span>   Mean   <span class="op">:</span><span class="fl">8.25</span>                     </span>
+<span id="cb73-8"><a href="importer-des-données.html#cb73-8"></a> 3rd Qu.<span class="op">:</span><span class="fl">181.0</span>   3rd Qu.<span class="op">:</span><span class="fl">79.00</span>   3rd Qu.<span class="op">:</span><span class="fl">8.75</span>                     </span>
+<span id="cb73-9"><a href="importer-des-données.html#cb73-9"></a> Max.   <span class="op">:</span><span class="fl">184.0</span>   Max.   <span class="op">:</span><span class="fl">80.00</span>   Max.   <span class="op">:</span><span class="fl">9.50</span>                     </span>
+<span id="cb73-10"><a href="importer-des-données.html#cb73-10"></a> NA<span class="st">&#39;s   :1       NA&#39;</span>s   <span class="op">:</span><span class="dv">1</span>                                        </span></code></pre></div></li>
+<li><p>Changer les <strong>levels</strong> de la variable <code>sex</code> en <strong>woman</strong> et <strong>man</strong> (on pourra utiliser la fonction <strong>levels</strong>).</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="importer-des-données.html#cb74-1"></a><span class="op">&gt;</span><span class="st"> </span>data22 &lt;-<span class="st"> </span>data2</span></code></pre></div></li>
+</ol>
+<ul>
+<li><p>1ère façon :</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="importer-des-données.html#cb75-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">levels</span>(data2<span class="op">$</span>sex) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;woman&quot;</span>,<span class="st">&quot;man&quot;</span>)</span>
+<span id="cb75-2"><a href="importer-des-données.html#cb75-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(data2)</span>
+<span id="cb75-3"><a href="importer-des-données.html#cb75-3"></a>     height          weight           size          sex           </span>
+<span id="cb75-4"><a href="importer-des-données.html#cb75-4"></a> Min.   <span class="op">:</span><span class="fl">175.5</span>   Min.   <span class="op">:</span><span class="fl">72.00</span>   Min.   <span class="op">:</span><span class="fl">7.00</span>   Length<span class="op">:</span><span class="dv">4</span>          </span>
+<span id="cb75-5"><a href="importer-des-données.html#cb75-5"></a> 1st Qu.<span class="op">:</span><span class="fl">176.8</span>   1st Qu.<span class="op">:</span><span class="fl">75.00</span>   1st Qu.<span class="op">:</span><span class="fl">7.75</span>   Class <span class="op">:</span>character  </span>
+<span id="cb75-6"><a href="importer-des-données.html#cb75-6"></a> Median <span class="op">:</span><span class="fl">178.0</span>   Median <span class="op">:</span><span class="fl">78.00</span>   Median <span class="op">:</span><span class="fl">8.25</span>   Mode  <span class="op">:</span>character  </span>
+<span id="cb75-7"><a href="importer-des-données.html#cb75-7"></a> Mean   <span class="op">:</span><span class="fl">179.2</span>   Mean   <span class="op">:</span><span class="fl">76.67</span>   Mean   <span class="op">:</span><span class="fl">8.25</span>                     </span>
+<span id="cb75-8"><a href="importer-des-données.html#cb75-8"></a> 3rd Qu.<span class="op">:</span><span class="fl">181.0</span>   3rd Qu.<span class="op">:</span><span class="fl">79.00</span>   3rd Qu.<span class="op">:</span><span class="fl">8.75</span>                     </span>
+<span id="cb75-9"><a href="importer-des-données.html#cb75-9"></a> Max.   <span class="op">:</span><span class="fl">184.0</span>   Max.   <span class="op">:</span><span class="fl">80.00</span>   Max.   <span class="op">:</span><span class="fl">9.50</span>                     </span>
+<span id="cb75-10"><a href="importer-des-données.html#cb75-10"></a> NA<span class="st">&#39;s   :1       NA&#39;</span>s   <span class="op">:</span><span class="dv">1</span>                                        </span></code></pre></div></li>
+<li><p>2ème façon avec <strong>recode_factor</strong></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="importer-des-données.html#cb76-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(tidyverse)</span>
+<span id="cb76-2"><a href="importer-des-données.html#cb76-2"></a><span class="op">&gt;</span><span class="st"> </span>data22<span class="op">$</span>sex &lt;-<span class="st"> </span><span class="kw">recode_factor</span>(data2<span class="op">$</span>sex,<span class="st">&quot;F&quot;</span>=<span class="st">&quot;woman&quot;</span>,<span class="st">&quot;M&quot;</span>=<span class="st">&quot;man&quot;</span>)</span>
+<span id="cb76-3"><a href="importer-des-données.html#cb76-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(data22)</span>
+<span id="cb76-4"><a href="importer-des-données.html#cb76-4"></a>     height          weight           size         sex   </span>
+<span id="cb76-5"><a href="importer-des-données.html#cb76-5"></a> Min.   <span class="op">:</span><span class="fl">175.5</span>   Min.   <span class="op">:</span><span class="fl">72.00</span>   Min.   <span class="op">:</span><span class="fl">7.00</span>   woman<span class="op">:</span><span class="dv">1</span>  </span>
+<span id="cb76-6"><a href="importer-des-données.html#cb76-6"></a> 1st Qu.<span class="op">:</span><span class="fl">176.8</span>   1st Qu.<span class="op">:</span><span class="fl">75.00</span>   1st Qu.<span class="op">:</span><span class="fl">7.75</span>   man  <span class="op">:</span><span class="dv">3</span>  </span>
+<span id="cb76-7"><a href="importer-des-données.html#cb76-7"></a> Median <span class="op">:</span><span class="fl">178.0</span>   Median <span class="op">:</span><span class="fl">78.00</span>   Median <span class="op">:</span><span class="fl">8.25</span>            </span>
+<span id="cb76-8"><a href="importer-des-données.html#cb76-8"></a> Mean   <span class="op">:</span><span class="fl">179.2</span>   Mean   <span class="op">:</span><span class="fl">76.67</span>   Mean   <span class="op">:</span><span class="fl">8.25</span>            </span>
+<span id="cb76-9"><a href="importer-des-données.html#cb76-9"></a> 3rd Qu.<span class="op">:</span><span class="fl">181.0</span>   3rd Qu.<span class="op">:</span><span class="fl">79.00</span>   3rd Qu.<span class="op">:</span><span class="fl">8.75</span>            </span>
+<span id="cb76-10"><a href="importer-des-données.html#cb76-10"></a> Max.   <span class="op">:</span><span class="fl">184.0</span>   Max.   <span class="op">:</span><span class="fl">80.00</span>   Max.   <span class="op">:</span><span class="fl">9.50</span>            </span>
+<span id="cb76-11"><a href="importer-des-données.html#cb76-11"></a> NA<span class="st">&#39;s   :1       NA&#39;</span>s   <span class="op">:</span><span class="dv">1</span>                               </span></code></pre></div></li>
+</ul>
+
+<div class="exercise">
+<span id="exr:exo-import2" class="exercise"><strong>Exercice 4.2  (Jointure de tables)  </strong></span>
+</div>
+
+<p>On considère les 3 jeux de données suivants, au format <strong>tibble</strong> :</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="importer-des-données.html#cb77-1"></a><span class="op">&gt;</span><span class="st"> </span>df1 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">name=</span><span class="kw">c</span>(<span class="st">&quot;Mary&quot;</span>,<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;John&quot;</span>,<span class="st">&quot;July&quot;</span>),<span class="dt">age=</span><span class="kw">c</span>(<span class="dv">18</span>,<span class="dv">25</span>,<span class="dv">21</span>,<span class="dv">43</span>))</span>
+<span id="cb77-2"><a href="importer-des-données.html#cb77-2"></a><span class="op">&gt;</span><span class="st"> </span>df2 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">name=</span><span class="kw">c</span>(<span class="st">&quot;Zac&quot;</span>,<span class="st">&quot;Julian&quot;</span>),<span class="dt">age=</span><span class="kw">c</span>(<span class="dv">23</span>,<span class="dv">48</span>))</span>
+<span id="cb77-3"><a href="importer-des-données.html#cb77-3"></a><span class="op">&gt;</span><span class="st"> </span>df3 &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">size=</span><span class="kw">c</span>(<span class="dv">154</span>,<span class="dv">178</span>,<span class="dv">182</span>,<span class="dv">134</span>,<span class="dv">142</span>),<span class="dt">name1=</span><span class="kw">c</span>(<span class="st">&quot;Peter&quot;</span>,<span class="st">&quot;Mary&quot;</span>,<span class="st">&quot;July&quot;</span>,<span class="st">&quot;John&quot;</span>,<span class="st">&quot;stef&quot;</span>))</span>
+<span id="cb77-4"><a href="importer-des-données.html#cb77-4"></a><span class="op">&gt;</span><span class="st"> </span>df1</span>
+<span id="cb77-5"><a href="importer-des-données.html#cb77-5"></a><span class="co"># A tibble: 4 x 2</span></span>
+<span id="cb77-6"><a href="importer-des-données.html#cb77-6"></a>  name    age</span>
+<span id="cb77-7"><a href="importer-des-données.html#cb77-7"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></span>
+<span id="cb77-8"><a href="importer-des-données.html#cb77-8"></a><span class="dv">1</span> Mary     <span class="dv">18</span></span>
+<span id="cb77-9"><a href="importer-des-données.html#cb77-9"></a><span class="dv">2</span> Peter    <span class="dv">25</span></span>
+<span id="cb77-10"><a href="importer-des-données.html#cb77-10"></a><span class="dv">3</span> John     <span class="dv">21</span></span>
+<span id="cb77-11"><a href="importer-des-données.html#cb77-11"></a><span class="dv">4</span> July     <span class="dv">43</span></span>
+<span id="cb77-12"><a href="importer-des-données.html#cb77-12"></a><span class="op">&gt;</span><span class="st"> </span>df2</span>
+<span id="cb77-13"><a href="importer-des-données.html#cb77-13"></a><span class="co"># A tibble: 2 x 2</span></span>
+<span id="cb77-14"><a href="importer-des-données.html#cb77-14"></a>  name     age</span>
+<span id="cb77-15"><a href="importer-des-données.html#cb77-15"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></span>
+<span id="cb77-16"><a href="importer-des-données.html#cb77-16"></a><span class="dv">1</span> Zac       <span class="dv">23</span></span>
+<span id="cb77-17"><a href="importer-des-données.html#cb77-17"></a><span class="dv">2</span> Julian    <span class="dv">48</span></span>
+<span id="cb77-18"><a href="importer-des-données.html#cb77-18"></a><span class="op">&gt;</span><span class="st"> </span>df3</span>
+<span id="cb77-19"><a href="importer-des-données.html#cb77-19"></a><span class="co"># A tibble: 5 x 2</span></span>
+<span id="cb77-20"><a href="importer-des-données.html#cb77-20"></a>   size name1</span>
+<span id="cb77-21"><a href="importer-des-données.html#cb77-21"></a>  <span class="op">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>chr<span class="op">&gt;</span></span>
+<span id="cb77-22"><a href="importer-des-données.html#cb77-22"></a><span class="dv">1</span>   <span class="dv">154</span> Peter</span>
+<span id="cb77-23"><a href="importer-des-données.html#cb77-23"></a><span class="dv">2</span>   <span class="dv">178</span> Mary </span>
+<span id="cb77-24"><a href="importer-des-données.html#cb77-24"></a><span class="dv">3</span>   <span class="dv">182</span> July </span>
+<span id="cb77-25"><a href="importer-des-données.html#cb77-25"></a><span class="dv">4</span>   <span class="dv">134</span> John </span>
+<span id="cb77-26"><a href="importer-des-données.html#cb77-26"></a><span class="dv">5</span>   <span class="dv">142</span> stef </span></code></pre></div>
+<p>On souhaite assembler ces tables en utilisant les <em>fonctions de jointure</em> du <strong>tidyverse</strong> (<em>left_join</em>, <em>full_join</em> par exemple). On pourra consulter la cheatsheet <strong>Data transformation with dplyr</strong> (<em>help -&gt; cheatsheets -&gt; …</em>).</p>
+<ol style="list-style-type: decimal">
+<li><p>Assembler <code>df1</code> avec <code>df2</code> en utilisant <strong>bind_rows</strong> et calculer la moyenne de la variable <code>age</code>. On appellera <code>df</code> cette nouvelle table.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="importer-des-données.html#cb78-1"></a><span class="op">&gt;</span><span class="st"> </span>df &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(df1,df2)</span>
+<span id="cb78-2"><a href="importer-des-données.html#cb78-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">mean</span>(df<span class="op">$</span>age)</span>
+<span id="cb78-3"><a href="importer-des-données.html#cb78-3"></a>[<span class="dv">1</span>] <span class="fl">29.66667</span></span></code></pre></div></li>
+<li><p>Assembler <code>df</code> avec <code>df3</code> en utilisant <strong>full_join</strong>.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="importer-des-données.html#cb79-1"></a><span class="op">&gt;</span><span class="st"> </span>a1 &lt;-<span class="st"> </span><span class="kw">full_join</span>(df,df3,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;name&quot;</span>=<span class="st">&quot;name1&quot;</span>))</span>
+<span id="cb79-2"><a href="importer-des-données.html#cb79-2"></a><span class="op">&gt;</span><span class="st"> </span>a1</span>
+<span id="cb79-3"><a href="importer-des-données.html#cb79-3"></a><span class="co"># A tibble: 7 x 3</span></span>
+<span id="cb79-4"><a href="importer-des-données.html#cb79-4"></a>  name     age  size</span>
+<span id="cb79-5"><a href="importer-des-données.html#cb79-5"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">  </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></span>
+<span id="cb79-6"><a href="importer-des-données.html#cb79-6"></a><span class="dv">1</span> Mary      <span class="dv">18</span>   <span class="dv">178</span></span>
+<span id="cb79-7"><a href="importer-des-données.html#cb79-7"></a><span class="dv">2</span> Peter     <span class="dv">25</span>   <span class="dv">154</span></span>
+<span id="cb79-8"><a href="importer-des-données.html#cb79-8"></a><span class="dv">3</span> John      <span class="dv">21</span>   <span class="dv">134</span></span>
+<span id="cb79-9"><a href="importer-des-données.html#cb79-9"></a><span class="dv">4</span> July      <span class="dv">43</span>   <span class="dv">182</span></span>
+<span id="cb79-10"><a href="importer-des-données.html#cb79-10"></a><span class="dv">5</span> Zac       <span class="dv">23</span>    <span class="ot">NA</span></span>
+<span id="cb79-11"><a href="importer-des-données.html#cb79-11"></a><span class="dv">6</span> Julian    <span class="dv">48</span>    <span class="ot">NA</span></span>
+<span id="cb79-12"><a href="importer-des-données.html#cb79-12"></a><span class="dv">7</span> stef      <span class="ot">NA</span>   <span class="dv">142</span></span></code></pre></div></li>
+<li><p>Faire la même chose avec <strong>inner_join</strong>.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="importer-des-données.html#cb80-1"></a><span class="op">&gt;</span><span class="st"> </span>a2 &lt;-<span class="st"> </span><span class="kw">inner_join</span>(df,df3,<span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;name&quot;</span>=<span class="st">&quot;name1&quot;</span>))</span>
+<span id="cb80-2"><a href="importer-des-données.html#cb80-2"></a><span class="op">&gt;</span><span class="st"> </span>a2</span>
+<span id="cb80-3"><a href="importer-des-données.html#cb80-3"></a><span class="co"># A tibble: 4 x 3</span></span>
+<span id="cb80-4"><a href="importer-des-données.html#cb80-4"></a>  name    age  size</span>
+<span id="cb80-5"><a href="importer-des-données.html#cb80-5"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>dbl<span class="op">&gt;</span></span>
+<span id="cb80-6"><a href="importer-des-données.html#cb80-6"></a><span class="dv">1</span> Mary     <span class="dv">18</span>   <span class="dv">178</span></span>
+<span id="cb80-7"><a href="importer-des-données.html#cb80-7"></a><span class="dv">2</span> Peter    <span class="dv">25</span>   <span class="dv">154</span></span>
+<span id="cb80-8"><a href="importer-des-données.html#cb80-8"></a><span class="dv">3</span> John     <span class="dv">21</span>   <span class="dv">134</span></span>
+<span id="cb80-9"><a href="importer-des-données.html#cb80-9"></a><span class="dv">4</span> July     <span class="dv">43</span>   <span class="dv">182</span></span></code></pre></div></li>
+<li><p>Expliquer les différences entre <strong>full_join</strong> et <strong>inner_join</strong>.</p>
+<p><strong>inner_join</strong> retient uniquement les individus pour lesquels <code>age</code> <strong>et</strong> <code>size</code> ont été observés. <strong>full_join</strong> garde tous les individus, des <strong>NA</strong> sont ajoutées lorsque la variable n’est pas observée.</p></li>
+</ol>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dplyr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ggplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "sepia",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["TUTO_R.pdf", "TUTO_R.epub"],
+"toc": {
+"collapse": "subsection",
+"sharing": {
+"facebook": true,
+"github": true,
+"twitter": true
+}
+},
+"highlight": "tango"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
