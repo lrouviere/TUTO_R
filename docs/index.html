@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2020-06-19" />
+<meta name="date" content="2020-06-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,31 @@
 
 
 
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/amcharts-3.21.13/amcharts.js"></script>
+<script src="libs/ramcharts_base-binding-2.1.13/ramcharts_base.js"></script>
+<script src="libs/amcharts_type_serial-3.20.18/serial.js"></script>
+<script src="libs/amcharts_themes_light.js-3.20.18/light.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
+<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
+<script src="libs/vis-4.20.1/vis.min.js"></script>
+<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
+<script src="libs/FileSaver-1.1.20151003/FileSaver.min.js"></script>
+<script src="libs/Blob-1.0/Blob.js"></script>
+<script src="libs/canvas-toBlob-1.0/canvas-toBlob.js"></script>
+<script src="libs/html2canvas-0.5.0/html2canvas.js"></script>
+<script src="libs/jspdf-1.3.2/jspdf.debug.js"></script>
+<link href="libs/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
+<script src="libs/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+<script src="libs/sparkline-binding-2.0/sparkline.js"></script>
 
 
 <style type="text/css">
@@ -172,7 +197,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.5" data-path="dplyr.html"><a href="dplyr.html#compléments-tidy-data-avec-tidyr"><i class="fa fa-check"></i><b>3.2.5</b> Compléments : Tidy data avec tidyr</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>4</b> Ggplot</a></li>
+<li class="chapter" data-level="4" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>4</b> Visualisation avec ggplot2</a><ul>
+<li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="ggplot2.html"><a href="ggplot2.html#la-fonction-plot"><i class="fa fa-check"></i><b>4.1.1</b> La fonction <strong>plot</strong></a></li>
+<li class="chapter" data-level="4.1.2" data-path="ggplot2.html"><a href="ggplot2.html#graphes-interactifs-avec-ramcharts"><i class="fa fa-check"></i><b>4.1.2</b> Graphes interactifs avec rAmCharts</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a><ul>
+<li class="chapter" data-level="4.2.1" data-path="ggplot2.html"><a href="ggplot2.html#premiers-graphes-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Premiers graphes <code>ggplot2</code></a></li>
+<li class="chapter" data-level="4.2.2" data-path="ggplot2.html"><a href="ggplot2.html#data-et-aesthetics"><i class="fa fa-check"></i><b>4.2.2</b> Data et aesthetics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> <code>Geometrics</code></a></li>
+<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> <code>Statistics</code></a></li>
+<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> <code>Scales</code></a></li>
+<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> <code>Group et facets</code></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ggplot2.html"><a href="ggplot2.html#compléments"><i class="fa fa-check"></i><b>4.3</b> Compléments</a></li>
+<li class="chapter" data-level="4.4" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-supplémentaires"><i class="fa fa-check"></i><b>4.4</b> Quelques exercices supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>5</b> Faire des cartes interactives avec leaflet</a><ul>
+<li class="chapter" data-level="5.1" data-path="leaflet.html"><a href="leaflet.html#présentation-de-leaflet"><i class="fa fa-check"></i><b>5.1</b> Présentation de leaflet</a></li>
+<li class="chapter" data-level="5.2" data-path="leaflet.html"><a href="leaflet.html#challenge-visualisation-des-stations-velib-à-paris"><i class="fa fa-check"></i><b>5.2</b> Challenge : Visualisation des stations velib à Paris</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html"><i class="fa fa-check"></i><b>6</b> Faire de la régression sur R</a><ul>
+<li class="chapter" data-level="6.1" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#modèle-linéaire-fonctions-lm-et-predict"><i class="fa fa-check"></i><b>6.1</b> Modèle linéaire : fonctions lm et predict</a></li>
+<li class="chapter" data-level="6.2" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#sélection-de-variables"><i class="fa fa-check"></i><b>6.2</b> Sélection de variables</a></li>
+<li class="chapter" data-level="6.3" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#régression-logistique-et-arbre"><i class="fa fa-check"></i><b>6.3</b> Régression logistique et arbre</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="références.html"><a href="références.html"><i class="fa fa-check"></i>Références</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -197,7 +246,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introduction à R</h1>
 <p class="author"><em>Laurent Rouvière</em></p>
-<p class="date"><em>2020-06-19</em></p>
+<p class="date"><em>2020-06-22</em></p>
 </div>
 <div id="Presentation" class="section level1 unnumbered">
 <h1>Présentation</h1>
@@ -211,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Cartes dynamiques</strong> avec <code>leaflet</code></li>
 <li><strong>Régression</strong> : ajustement de modèles, formules, prévisions…</li>
 </ul>
-<p>On pourra trouver des supports de cours ainsi que les données utilisées à l’adresse suivante <a href="https://lrouviere.github.io/intro_R/" class="uri">https://lrouviere.github.io/intro_R/</a>. Des compléments sur les outils du tidyverse pourront être consultés dans le très complet document de <span class="citation">Barnier (<a href="#ref-barnier20" role="doc-biblioref">2020</a>)</span> ainsi que les ouvrages <span class="citation">Wickham and Grolemund (<a href="#ref-gro-wick17" role="doc-biblioref">2017</a>)</span> et <span class="citation">Cornillon et al. (<a href="#ref-rstat18" role="doc-biblioref">2018</a>)</span>.</p>
+<p>On pourra trouver des supports de cours ainsi que les données utilisées à l’adresse suivante <a href="https://lrouviere.github.io/intro_R/" class="uri">https://lrouviere.github.io/intro_R/</a>. Des compléments sur les outils du tidyverse pourront être consultés dans le très complet document de <span class="citation">Barnier (<a href="#ref-barnier20" role="doc-biblioref">2020</a>)</span> ainsi que les ouvrages de <span class="citation">Wickham and Grolemund (<a href="#ref-gro-wick17" role="doc-biblioref">2017</a>)</span> et de <span class="citation">Cornillon et al. (<a href="#ref-rstat18" role="doc-biblioref">2018</a>)</span>.</p>
 
 </div>
 <h3>Références</h3>
