@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 1 Introduction | Introduction à R</title>
-  <meta name="description" content="Chapitre 1 Introduction | Introduction à R" />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+  <title>Chapitre 1 Introduction | Introduction à R et à la modélisation statistique</title>
+  <meta name="description" content="Chapitre 1 Introduction | Introduction à R et à la modélisation statistique" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 1 Introduction | Introduction à R" />
+  <meta property="og:title" content="Chapitre 1 Introduction | Introduction à R et à la modélisation statistique" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 1 Introduction | Introduction à R" />
+  <meta name="twitter:title" content="Chapitre 1 Introduction | Introduction à R et à la modélisation statistique" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2020-06-22" />
+<meta name="date" content="2020-09-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/amcharts-3.21.13/amcharts.js"></script>
 <script src="libs/ramcharts_base-binding-2.1.13/ramcharts_base.js"></script>
@@ -64,17 +65,6 @@
 <script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
 <script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin-2.0.3/leaflet-providers-plugin.js"></script>
-<link href="libs/vis-4.20.1/vis.css" rel="stylesheet" />
-<script src="libs/vis-4.20.1/vis.min.js"></script>
-<script src="libs/visNetwork-binding-2.0.9/visNetwork.js"></script>
-<script src="libs/FileSaver-1.1.20151003/FileSaver.min.js"></script>
-<script src="libs/Blob-1.0/Blob.js"></script>
-<script src="libs/canvas-toBlob-1.0/canvas-toBlob.js"></script>
-<script src="libs/html2canvas-0.5.0/html2canvas.js"></script>
-<script src="libs/jspdf-1.3.2/jspdf.debug.js"></script>
-<link href="libs/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
-<script src="libs/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
-<script src="libs/sparkline-binding-2.0/sparkline.js"></script>
 
 
 <style type="text/css">
@@ -142,7 +132,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="/Users/laurent/Dropbox/FICHIERS_STYLE/style_bdown.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -222,6 +212,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.2" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#sélection-de-variables"><i class="fa fa-check"></i><b>6.2</b> Sélection de variables</a></li>
 <li class="chapter" data-level="6.3" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#régression-logistique-et-arbre"><i class="fa fa-check"></i><b>6.3</b> Régression logistique et arbre</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation et intervalles de confiance</a><ul>
+<li class="chapter" data-level="7.1" data-path="estimation.html"><a href="estimation.html#générer-des-observations-selon-des-lois-de-probabilités"><i class="fa fa-check"></i><b>7.1</b> Générer des observations selon des lois de probabilités</a></li>
+<li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#une-étude-numérique-de-la-moyenne-empirique."><i class="fa fa-check"></i><b>7.2</b> Une étude numérique de la moyenne empirique.</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="estimation.html"><a href="estimation.html#exemple."><i class="fa fa-check"></i><b>7.2.1</b> Exemple.</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="estimation.html"><a href="estimation.html#intervalles-de-confiance"><i class="fa fa-check"></i><b>7.3</b> Intervalles de confiance</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="références.html"><a href="références.html"><i class="fa fa-check"></i>Références</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -235,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction à R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction à R et à la modélisation statistique</a>
           </h1>
         </div>
 
@@ -274,8 +271,8 @@ ou</li>
 <li>ou cliquant sur le bouton <em>Packages</em>.</li>
 </ul>
 <p>Une fois le package installé sur la machine, on l’installe avec la fonction <strong>library</strong> :</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">install.packages</span>(package.name)</span>
-<span id="cb1-2"><a href="intro.html#cb1-2"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(packages.name)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1"></a><span class="kw">install.packages</span>(package.name)</span>
+<span id="cb1-2"><a href="intro.html#cb1-2"></a><span class="kw">library</span>(packages.name)</span></code></pre></div>
 
 <div class="exercise">
 <span id="exr:exo-intro-package" class="exercise"><strong>Exercice 1.1  (Installation et chargement)  </strong></span>
@@ -283,16 +280,11 @@ ou</li>
 
 <ol style="list-style-type: decimal">
 <li><p>Exécuter</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1"></a><span class="op">&gt;</span><span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">mean_Petal=</span><span class="kw">mean</span>(Petal.Length))</span></code></pre></div></li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">mean_Petal=</span><span class="kw">mean</span>(Petal.Length))</span></code></pre></div></li>
 </ol>
 <p>Que se passe t-il ?</p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Installer et charger le package <strong>tidyverse</strong> et ré-executer le code précédent.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="intro.html#cb4-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">library</span>(tidyverse)</span>
-<span id="cb4-2"><a href="intro.html#cb4-2"></a><span class="op">&gt;</span><span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">mean_Petal=</span><span class="kw">mean</span>(Petal.Length))</span>
-<span id="cb4-3"><a href="intro.html#cb4-3"></a>  mean_Petal</span>
-<span id="cb4-4"><a href="intro.html#cb4-4"></a><span class="dv">1</span>      <span class="fl">3.758</span></span></code></pre></div></li>
+<li>Installer et charger le package <strong>tidyverse</strong> et ré-executer le code précédent.</li>
 </ol>
 </div>
 <div id="markdown" class="section level2">
@@ -312,26 +304,26 @@ ou</li>
 <ul>
 <li><p>Caractère en italique ou gras : <code>*italique*</code> et <code>**gras**</code> donne <em>italique</em> et <strong>gras</strong></p></li>
 <li><p>Listes non ordonnées</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="intro.html#cb5-1"></a>- <span class="st">item 1</span></span>
-<span id="cb5-2"><a href="intro.html#cb5-2"></a><span class="st">- item 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="intro.html#cb3-1"></a>- <span class="st">item 1</span></span>
+<span id="cb3-2"><a href="intro.html#cb3-2"></a><span class="st">- item 2</span></span></code></pre></div>
 <p>produit</p>
 <ul>
 <li>item 1</li>
 <li>item 2</li>
 </ul></li>
 <li><p>liste ordonnée :</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="intro.html#cb6-1"></a>1. <span class="st">item 1</span></span>
-<span id="cb6-2"><a href="intro.html#cb6-2"></a><span class="st">2. item 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="intro.html#cb4-1"></a>1. <span class="st">item 1</span></span>
+<span id="cb4-2"><a href="intro.html#cb4-2"></a><span class="st">2. item 2</span></span></code></pre></div>
 <p>produit</p>
 <ol style="list-style-type: decimal">
 <li>item 1</li>
 <li>item 2</li>
 </ol></li>
 <li><p>tableau :</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="intro.html#cb7-1"></a>|      | Col1 | Col2 | Col3 |</span>
-<span id="cb7-2"><a href="intro.html#cb7-2"></a>|:----:|:----:|:----:|:----:|</span>
-<span id="cb7-3"><a href="intro.html#cb7-3"></a>| Row1 |  1   |   2  |   3  |</span>
-<span id="cb7-4"><a href="intro.html#cb7-4"></a>| Row2 |  1   |   2  |   3  |</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="intro.html#cb5-1"></a>|      | Col1 | Col2 | Col3 |</span>
+<span id="cb5-2"><a href="intro.html#cb5-2"></a>|:----:|:----:|:----:|:----:|</span>
+<span id="cb5-3"><a href="intro.html#cb5-3"></a>| Row1 |  1   |   2  |   3  |</span>
+<span id="cb5-4"><a href="intro.html#cb5-4"></a>| Row2 |  1   |   2  |   3  |</span></code></pre></div>
 <p>renvoie</p></li>
 </ul>
 <table>
@@ -360,7 +352,7 @@ ou</li>
 </table>
 <ul>
 <li><p>équation latex :</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="intro.html#cb8-1"></a>$$\int_a^b f(x)dx=1$$</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="intro.html#cb6-1"></a>$$\int_a^b f(x)dx=1$$</span></code></pre></div>
 <p>renvoie
 <span class="math display">\[\int_a^b f(x)dx=1\]</span></p></li>
 </ul>
@@ -373,9 +365,9 @@ ou</li>
 <li>la bouton <strong>Insert -&gt; R</strong></li>
 <li>en tapant :</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="intro.html#cb9-1"></a><span class="bn">```{r}</span></span>
-<span id="cb9-2"><a href="intro.html#cb9-2"></a><span class="bn">commandes...</span></span>
-<span id="cb9-3"><a href="intro.html#cb9-3"></a><span class="bn">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="intro.html#cb7-1"></a><span class="bn">```{r}</span></span>
+<span id="cb7-2"><a href="intro.html#cb7-2"></a><span class="bn">commandes...</span></span>
+<span id="cb7-3"><a href="intro.html#cb7-3"></a><span class="bn">```</span></span></code></pre></div>
 <p>Plusieurs options peuvent être spécifiés au chunk en fonction de ce que l’on souhaite voir dans le document, par exemple :</p>
 <ul>
 <li><strong>echo</strong> : <code>TRUE</code>or <code>FALSE</code> pour spécifier si on souhaite afficher le code ;</li>
@@ -393,18 +385,18 @@ ou</li>
 <li><p>Cliquer sur le bouton <code>Knit</code> et visualiser la sortie <strong>html</strong>.</p></li>
 <li><p>Obtenir une sortie <strong>pdf</strong>.</p></li>
 <li><p>Modifier le document en créant une section <strong>Cosinus</strong> dans laquelle on tracera la fonction <code>cosinus</code>, on pourra utiliser le code suivant dans un <strong>chunk</strong>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="intro.html#cb10-1"></a><span class="op">&gt;</span><span class="st"> </span>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">2</span><span class="op">*</span>pi,<span class="dv">2</span><span class="op">*</span>pi,<span class="dt">by=</span><span class="fl">0.01</span>)</span>
-<span id="cb10-2"><a href="intro.html#cb10-2"></a><span class="op">&gt;</span><span class="st"> </span>y &lt;-<span class="st"> </span><span class="kw">cos</span>(x)</span>
-<span id="cb10-3"><a href="intro.html#cb10-3"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">plot</span>(x,y,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="intro.html#cb8-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">2</span><span class="op">*</span>pi,<span class="dv">2</span><span class="op">*</span>pi,<span class="dt">by=</span><span class="fl">0.01</span>)</span>
+<span id="cb8-2"><a href="intro.html#cb8-2"></a>y &lt;-<span class="st"> </span><span class="kw">cos</span>(x)</span>
+<span id="cb8-3"><a href="intro.html#cb8-3"></a><span class="kw">plot</span>(x,y,<span class="dt">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div></li>
 <li><p>Ajouter une section <strong>Sinus</strong> dans laquelle on tracera la fonction <code>sinus</code>.</p></li>
 </ol>
 </div>
 <div id="notebook" class="section level3">
 <h3><span class="header-section-number">1.3.3</span> Notebook</h3>
 <p>L’environnement <strong>notebook</strong> fonctionne exactement comme un document <strong>markdown</strong> mais permet de visualiser la sortie eu format <strong>html</strong> sans avoir à recompiler le document en entier. Cet environnement est donc souvent privilégié pendant la réalisation d’un projet en science des données. Pour créer un notebook, on peut passer par <strong>RStudio</strong> : <em>File -&gt; New File -&gt; R Notebook</em> ou simplement remplacer</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="intro.html#cb11-1"></a>output: html_document</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="intro.html#cb9-1"></a>output: html_document</span></code></pre></div>
 <p>par</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="intro.html#cb12-1"></a>output: html_notebook</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="intro.html#cb10-1"></a>output: html_notebook</span></code></pre></div>
 <p>dans l’entête d’un document <strong>markdown</strong>.</p>
 
 <div class="exercise">
@@ -439,37 +431,37 @@ ou</li>
 <div id="exemples-de-styles-de-documents-markdown" class="section level3">
 <h3><span class="header-section-number">1.3.5</span> Exemples de styles de documents markdown</h3>
 <p>Par défaut l’entête d’un document <strong>markdown</strong> est de la forme</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="intro.html#cb13-1"></a>---</span>
-<span id="cb13-2"><a href="intro.html#cb13-2"></a>title: &quot;Mon document&quot;</span>
-<span id="cb13-3"><a href="intro.html#cb13-3"></a>author: &quot;Laurent Rouviere&quot;</span>
-<span id="cb13-4"><a href="intro.html#cb13-4"></a>date: &quot;6/18/2020&quot;</span>
-<span id="cb13-5"><a href="intro.html#cb13-5"></a>output: html_document</span>
-<span id="cb13-6"><a href="intro.html#cb13-6"></a>---</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="intro.html#cb11-1"></a>---</span>
+<span id="cb11-2"><a href="intro.html#cb11-2"></a>title: &quot;Mon document&quot;</span>
+<span id="cb11-3"><a href="intro.html#cb11-3"></a>author: &quot;Laurent Rouviere&quot;</span>
+<span id="cb11-4"><a href="intro.html#cb11-4"></a>date: &quot;6/18/2020&quot;</span>
+<span id="cb11-5"><a href="intro.html#cb11-5"></a>output: html_document</span>
+<span id="cb11-6"><a href="intro.html#cb11-6"></a>---</span></code></pre></div>
 <p>Il existe tout un tas d’options qui vont permettre d’améliorer le document final. On peut par exemple ajouter une table des matières avec</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="intro.html#cb14-1"></a>output:</span>
-<span id="cb14-2"><a href="intro.html#cb14-2"></a>  html_document:</span>
-<span id="cb14-3"><a href="intro.html#cb14-3"></a><span class="bn">    toc: true</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="intro.html#cb12-1"></a>output:</span>
+<span id="cb12-2"><a href="intro.html#cb12-2"></a>  html_document:</span>
+<span id="cb12-3"><a href="intro.html#cb12-3"></a><span class="bn">    toc: true</span></span></code></pre></div>
 <p>On peut également utiliser des styles prédéfinis en</p>
 <ul>
 <li><p>changeant le thème, voir <a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/" class="uri">https://www.datadreaming.org/post/r-markdown-theme-gallery/</a></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="intro.html#cb15-1"></a>output: </span>
-<span id="cb15-2"><a href="intro.html#cb15-2"></a>html_document:</span>
-<span id="cb15-3"><a href="intro.html#cb15-3"></a>  theme: cerulean</span></code></pre></div></li>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="intro.html#cb13-1"></a>output: </span>
+<span id="cb13-2"><a href="intro.html#cb13-2"></a>html_document:</span>
+<span id="cb13-3"><a href="intro.html#cb13-3"></a>  theme: cerulean</span></code></pre></div></li>
 </ul>
 <p><img src="img/cerulean.png" /></p>
 <ul>
 <li><p>utilisant le package <strong>prettydoc</strong> (il faut l’installer), voir <a href="https://github.com/yixuan/prettydoc" class="uri">https://github.com/yixuan/prettydoc</a></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="intro.html#cb16-1"></a>output: </span>
-<span id="cb16-2"><a href="intro.html#cb16-2"></a>prettydoc::html_pretty:</span>
-<span id="cb16-3"><a href="intro.html#cb16-3"></a>  theme: cayman</span>
-<span id="cb16-4"><a href="intro.html#cb16-4"></a>  highlight: github</span></code></pre></div></li>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="intro.html#cb14-1"></a>output: </span>
+<span id="cb14-2"><a href="intro.html#cb14-2"></a>prettydoc::html_pretty:</span>
+<span id="cb14-3"><a href="intro.html#cb14-3"></a>  theme: cayman</span>
+<span id="cb14-4"><a href="intro.html#cb14-4"></a>  highlight: github</span></code></pre></div></li>
 </ul>
 <p><img src="img/prettydoc.png" /></p>
 <ul>
 <li><p>utilisant le package <strong>rmdformats</strong> (à installer aussi), voir <a href="https://github.com/juba/rmdformats" class="uri">https://github.com/juba/rmdformats</a></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="intro.html#cb17-1"></a>output: </span>
-<span id="cb17-2"><a href="intro.html#cb17-2"></a>rmdformats::readthedown:</span>
-<span id="cb17-3"><a href="intro.html#cb17-3"></a>  highlight: kate</span></code></pre></div></li>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="intro.html#cb15-1"></a>output: </span>
+<span id="cb15-2"><a href="intro.html#cb15-2"></a>rmdformats::readthedown:</span>
+<span id="cb15-3"><a href="intro.html#cb15-3"></a>  highlight: kate</span></code></pre></div></li>
 </ul>
 <p><img src="img/rmdformats.png" /></p>
 
@@ -524,7 +516,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["TUTO_R.pdf", "TUTO_R.epub"],
+"download": ["TUTO_R.pdf"],
 "toc": {
 "collapse": "subsection",
 "sharing": {
