@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-09-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,14 +191,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ggplot2.html"><a href="ggplot2.html#la-fonction-plot"><i class="fa fa-check"></i><b>4.1.1</b> La fonction <strong>plot</strong></a></li>
 <li class="chapter" data-level="4.1.2" data-path="ggplot2.html"><a href="ggplot2.html#graphes-interactifs-avec-ramcharts"><i class="fa fa-check"></i><b>4.1.2</b> Graphes interactifs avec rAmCharts</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dplyr.html"><a href="dplyr.html#quelques-exercices"><i class="fa fa-check"></i><b>4.1.3</b> Quelques exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a><ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot2.html"><a href="ggplot2.html#premiers-graphes-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Premiers graphes <code>ggplot2</code></a></li>
 <li class="chapter" data-level="4.2.2" data-path="ggplot2.html"><a href="ggplot2.html#data-et-aesthetics"><i class="fa fa-check"></i><b>4.2.2</b> Data et aesthetics</a></li>
-<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> <code>Geometrics</code></a></li>
-<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> <code>Statistics</code></a></li>
-<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> <code>Scales</code></a></li>
-<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> <code>Group et facets</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> Geometrics</a></li>
+<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> Statistics</a></li>
+<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> Scales</a></li>
+<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> Group et facets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="ggplot2.html"><a href="ggplot2.html#compléments"><i class="fa fa-check"></i><b>4.3</b> Compléments</a></li>
 <li class="chapter" data-level="4.4" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-supplémentaires"><i class="fa fa-check"></i><b>4.4</b> Quelques exercices supplémentaires</a></li>
@@ -249,7 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.1</span> Création d’objets</h2>
 <div id="numérique" class="section level3">
 <h3><span class="header-section-number">2.1.1</span> Numérique</h3>
-<p>On crée un <strong>objet R</strong> en assignant une valeur (ou un caractère, vecteur…) avec les opérateurs <strong>&lt;-</strong>, <strong>-&gt;</strong>, <strong>=</strong></p>
+<p>On crée un <strong>objet R</strong> en assignant une valeur (ou un caractère, vecteur…) avec les opérateurs <code>&lt;-</code>, <code>-&gt;</code>, <code>=</code></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="objetsR.html#cb17-1"></a>b &lt;-<span class="st"> </span><span class="fl">41.3</span>  <span class="co"># assigne la valeur 41.3 à l&#39;objet b</span></span>
 <span id="cb17-2"><a href="objetsR.html#cb17-2"></a>x &lt;-<span class="st"> </span>b     <span class="co"># b est assigné à x</span></span>
 <span id="cb17-3"><a href="objetsR.html#cb17-3"></a>x =<span class="st"> </span>b      <span class="co"># b est assigné à x</span></span>
@@ -306,18 +307,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.2</span> Vecteur</h2>
 <p>On peut définir un vecteur de plusieurs façons :</p>
 <ul>
-<li>fonction collect <strong>c</strong></li>
+<li>fonction collect <code>c</code></li>
 </ul>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="objetsR.html#cb21-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.2</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">11</span>)</span>
 <span id="cb21-2"><a href="objetsR.html#cb21-2"></a>x</span>
 <span id="cb21-3"><a href="objetsR.html#cb21-3"></a>[<span class="dv">1</span>]  <span class="fl">1.2</span>  <span class="fl">5.0</span>  <span class="fl">9.0</span> <span class="fl">11.0</span></span></code></pre></div>
 <ul>
-<li>opérateur séquence <strong>:</strong></li>
+<li>opérateur séquence <code>:</code></li>
 </ul>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="objetsR.html#cb22-1"></a><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
 <span id="cb22-2"><a href="objetsR.html#cb22-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></span></code></pre></div>
 <ul>
-<li>fonction séquence <strong>seq</strong></li>
+<li>fonction séquence <code>seq</code></li>
 </ul>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="objetsR.html#cb23-1"></a><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</span>
 <span id="cb23-2"><a href="objetsR.html#cb23-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">9</span></span>
@@ -325,44 +326,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-4"><a href="objetsR.html#cb23-4"></a> [<span class="dv">1</span>] <span class="fl">0.0000000</span> <span class="fl">0.1111111</span> <span class="fl">0.2222222</span> <span class="fl">0.3333333</span> <span class="fl">0.4444444</span></span>
 <span id="cb23-5"><a href="objetsR.html#cb23-5"></a> [<span class="dv">6</span>] <span class="fl">0.5555556</span> <span class="fl">0.6666667</span> <span class="fl">0.7777778</span> <span class="fl">0.8888889</span> <span class="fl">1.0000000</span></span></code></pre></div>
 <ul>
-<li>fonction <strong>rep</strong></li>
+<li>fonction <code>rep</code></li>
 </ul>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="objetsR.html#cb24-1"></a><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>)</span>
 <span id="cb24-2"><a href="objetsR.html#cb24-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span></span>
 <span id="cb24-3"><a href="objetsR.html#cb24-3"></a><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),<span class="dt">each=</span><span class="dv">3</span>)</span>
 <span id="cb24-4"><a href="objetsR.html#cb24-4"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span></span></code></pre></div>
-<p>On peut aussi créer des vecteurs <em>caractère</em> ou <em>logique</em></p>
+<p>On peut aussi créer des vecteurs <strong>caractère</strong> ou <strong>logique</strong></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="objetsR.html#cb25-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>)</span>
 <span id="cb25-2"><a href="objetsR.html#cb25-2"></a>x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">5</span>)</span>
 <span id="cb25-3"><a href="objetsR.html#cb25-3"></a><span class="kw">paste</span>(<span class="st">&quot;X&quot;</span>,<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,<span class="dt">sep=</span><span class="st">&quot;-&quot;</span>)</span>
 <span id="cb25-4"><a href="objetsR.html#cb25-4"></a>[<span class="dv">1</span>] <span class="st">&quot;X-1&quot;</span> <span class="st">&quot;X-2&quot;</span> <span class="st">&quot;X-3&quot;</span> <span class="st">&quot;X-4&quot;</span> <span class="st">&quot;X-5&quot;</span></span>
 <span id="cb25-5"><a href="objetsR.html#cb25-5"></a><span class="kw">substr</span>(<span class="st">&quot;statistician&quot;</span>,<span class="dv">5</span>,<span class="dv">9</span>)</span>
 <span id="cb25-6"><a href="objetsR.html#cb25-6"></a>[<span class="dv">1</span>] <span class="st">&quot;istic&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="objetsR.html#cb26-1"></a><span class="kw">c</span>(T,F,T)</span>
+<span id="cb26-2"><a href="objetsR.html#cb26-2"></a>[<span class="dv">1</span>]  <span class="ot">TRUE</span> <span class="ot">FALSE</span>  <span class="ot">TRUE</span></span></code></pre></div>
 <div id="sélectionner-une-partie-dun-vecteur" class="section level3">
 <h3><span class="header-section-number">2.2.1</span> Sélectionner une partie d’un vecteur</h3>
-<p>La sélection s’effectue à l’aide de crochets <strong>[ ]</strong></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="objetsR.html#cb26-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">0</span>)</span>
-<span id="cb26-2"><a href="objetsR.html#cb26-2"></a>x[<span class="dv">2</span>]</span>
-<span id="cb26-3"><a href="objetsR.html#cb26-3"></a>[<span class="dv">1</span>] <span class="dv">-3</span></span>
-<span id="cb26-4"><a href="objetsR.html#cb26-4"></a>x[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)]</span>
-<span id="cb26-5"><a href="objetsR.html#cb26-5"></a>[<span class="dv">1</span>] <span class="dv">-3</span>  <span class="dv">5</span></span>
-<span id="cb26-6"><a href="objetsR.html#cb26-6"></a>x<span class="op">&gt;</span><span class="dv">0</span></span>
-<span id="cb26-7"><a href="objetsR.html#cb26-7"></a>[<span class="dv">1</span>] <span class="ot">FALSE</span> <span class="ot">FALSE</span>  <span class="ot">TRUE</span>  <span class="ot">TRUE</span>  <span class="ot">TRUE</span>  <span class="ot">TRUE</span> <span class="ot">FALSE</span></span>
-<span id="cb26-8"><a href="objetsR.html#cb26-8"></a>x[x<span class="op">&gt;</span><span class="dv">0</span>]</span>
-<span id="cb26-9"><a href="objetsR.html#cb26-9"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">8</span></span></code></pre></div>
+<p>La sélection s’effectue à l’aide de crochets <code>[ ]</code></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="objetsR.html#cb27-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">0</span>)</span>
+<span id="cb27-2"><a href="objetsR.html#cb27-2"></a>x[<span class="dv">2</span>]</span>
+<span id="cb27-3"><a href="objetsR.html#cb27-3"></a>[<span class="dv">1</span>] <span class="dv">-3</span></span>
+<span id="cb27-4"><a href="objetsR.html#cb27-4"></a>x[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)]</span>
+<span id="cb27-5"><a href="objetsR.html#cb27-5"></a>[<span class="dv">1</span>] <span class="dv">-3</span>  <span class="dv">5</span></span>
+<span id="cb27-6"><a href="objetsR.html#cb27-6"></a>x<span class="op">&gt;</span><span class="dv">0</span></span>
+<span id="cb27-7"><a href="objetsR.html#cb27-7"></a>[<span class="dv">1</span>] <span class="ot">FALSE</span> <span class="ot">FALSE</span>  <span class="ot">TRUE</span>  <span class="ot">TRUE</span>  <span class="ot">TRUE</span>  <span class="ot">TRUE</span> <span class="ot">FALSE</span></span>
+<span id="cb27-8"><a href="objetsR.html#cb27-8"></a>x[x<span class="op">&gt;</span><span class="dv">0</span>]</span>
+<span id="cb27-9"><a href="objetsR.html#cb27-9"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">8</span></span></code></pre></div>
 </div>
 <div id="opérations-sur-les-vecteurs" class="section level3">
 <h3><span class="header-section-number">2.2.2</span> Opérations sur les vecteurs</h3>
 <p>On peut facilement additionner, multiplier des vecteurs :</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="objetsR.html#cb27-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</span>
-<span id="cb27-2"><a href="objetsR.html#cb27-2"></a>y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)</span>
-<span id="cb27-3"><a href="objetsR.html#cb27-3"></a>x<span class="op">+</span>y</span>
-<span id="cb27-4"><a href="objetsR.html#cb27-4"></a> [<span class="dv">1</span>] <span class="dv">-9</span> <span class="dv">-6</span> <span class="dv">-3</span>  <span class="dv">0</span>  <span class="dv">3</span>  <span class="dv">6</span>  <span class="dv">9</span> <span class="dv">12</span> <span class="dv">15</span> <span class="dv">18</span> <span class="dv">21</span></span>
-<span id="cb27-5"><a href="objetsR.html#cb27-5"></a>x<span class="op">*</span>y</span>
-<span id="cb27-6"><a href="objetsR.html#cb27-6"></a> [<span class="dv">1</span>] <span class="dv">-10</span> <span class="dv">-16</span> <span class="dv">-18</span> <span class="dv">-16</span> <span class="dv">-10</span>   <span class="dv">0</span>  <span class="dv">14</span>  <span class="dv">32</span>  <span class="dv">54</span>  <span class="dv">80</span> <span class="dv">110</span></span>
-<span id="cb27-7"><a href="objetsR.html#cb27-7"></a>z &lt;-<span class="st"> </span>x<span class="op">&gt;</span><span class="dv">0</span></span>
-<span id="cb27-8"><a href="objetsR.html#cb27-8"></a>x<span class="op">*</span>z</span>
-<span id="cb27-9"><a href="objetsR.html#cb27-9"></a> [<span class="dv">1</span>]  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">2</span>  <span class="dv">4</span>  <span class="dv">6</span>  <span class="dv">8</span> <span class="dv">10</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="objetsR.html#cb28-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</span>
+<span id="cb28-2"><a href="objetsR.html#cb28-2"></a>y &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(x)</span>
+<span id="cb28-3"><a href="objetsR.html#cb28-3"></a>x<span class="op">+</span>y</span>
+<span id="cb28-4"><a href="objetsR.html#cb28-4"></a> [<span class="dv">1</span>] <span class="dv">-9</span> <span class="dv">-6</span> <span class="dv">-3</span>  <span class="dv">0</span>  <span class="dv">3</span>  <span class="dv">6</span>  <span class="dv">9</span> <span class="dv">12</span> <span class="dv">15</span> <span class="dv">18</span> <span class="dv">21</span></span>
+<span id="cb28-5"><a href="objetsR.html#cb28-5"></a>x<span class="op">*</span>y</span>
+<span id="cb28-6"><a href="objetsR.html#cb28-6"></a> [<span class="dv">1</span>] <span class="dv">-10</span> <span class="dv">-16</span> <span class="dv">-18</span> <span class="dv">-16</span> <span class="dv">-10</span>   <span class="dv">0</span>  <span class="dv">14</span>  <span class="dv">32</span>  <span class="dv">54</span>  <span class="dv">80</span> <span class="dv">110</span></span>
+<span id="cb28-7"><a href="objetsR.html#cb28-7"></a>z &lt;-<span class="st"> </span>x<span class="op">&gt;</span><span class="dv">0</span></span>
+<span id="cb28-8"><a href="objetsR.html#cb28-8"></a>x<span class="op">*</span>z</span>
+<span id="cb28-9"><a href="objetsR.html#cb28-9"></a> [<span class="dv">1</span>]  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">2</span>  <span class="dv">4</span>  <span class="dv">6</span>  <span class="dv">8</span> <span class="dv">10</span></span></code></pre></div>
 
 <div class="exercise">
 <span id="exr:exo-vecteur" class="exercise"><strong>Exercice 2.1  (Manipulation de vecteurs)  </strong></span>
@@ -371,15 +374,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li><p>Calculer la moyenne, la somme, la médiane et la variance du vecteur (1,3,8,9,11).</p></li>
 <li><p>Créer les vecteurs suivants en utilisant la fonction <strong>rep</strong>.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb28-1"><a href="objetsR.html#cb28-1"></a>vec1 = 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 </span>
-<span id="cb28-2"><a href="objetsR.html#cb28-2"></a>vec2 = 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5</span>
-<span id="cb28-3"><a href="objetsR.html#cb28-3"></a>vec3 = 1 1 2 2 2 3 3 3 3 4 4 4 4 4</span></code></pre></div></li>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb29-1"><a href="objetsR.html#cb29-1"></a>vec1 = 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 </span>
+<span id="cb29-2"><a href="objetsR.html#cb29-2"></a>vec2 = 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5</span>
+<span id="cb29-3"><a href="objetsR.html#cb29-3"></a>vec3 = 1 1 2 2 2 3 3 3 3 4 4 4 4 4</span></code></pre></div></li>
 <li><p>Créer le vecteur suivant à l’aide de la fonction <strong>paste</strong>.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb29-1"><a href="objetsR.html#cb29-1"></a>vec4 = &quot;A0)&quot; &quot;A1)&quot; &quot;A2)&quot; &quot;A3)&quot; &quot;A4)&quot; &quot;A5)&quot; &quot;A6)&quot; &quot;A7)&quot; &quot;A8)&quot; &quot;A9)&quot; &quot;A10)&quot;</span></code></pre></div></li>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="objetsR.html#cb30-1"></a>vec4 = &quot;A0)&quot; &quot;A1)&quot; &quot;A2)&quot; &quot;A3)&quot; &quot;A4)&quot; &quot;A5)&quot; &quot;A6)&quot; &quot;A7)&quot; &quot;A8)&quot; &quot;A9)&quot; &quot;A10)&quot;</span></code></pre></div></li>
 <li><p><strong>letters</strong> est un vecteur qui contient les 26 lettres de l’alphabet.</p>
 <ol style="list-style-type: lower-alpha">
-<li>Trouver le numéro de la lettre <span class="math inline">\(q\)</span> (sans compter avec les mains !). On pourra utiliser la fonction <strong>which</strong>.</li>
-<li>Créer le vecteur “a1”,“b2”,<span class="math inline">\(\dots\)</span> jusqu’à <span class="math inline">\(q\)</span> et son index.</li>
+<li><p>Trouver le numéro de la lettre <span class="math inline">\(q\)</span> (sans compter avec les mains !). On pourra utiliser la fonction <strong>which</strong>.</p></li>
+<li><p>Créer le vecteur “a1”,“b2”,<span class="math inline">\(\dots\)</span> jusqu’à <span class="math inline">\(q\)</span> et son index.</p></li>
 </ol></li>
 </ol>
 </div>
@@ -387,148 +390,146 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="matrices" class="section level2">
 <h2><span class="header-section-number">2.3</span> Matrices</h2>
 <p>La fonction <strong>matrix</strong> permet de définir des matrices.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="objetsR.html#cb30-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dt">ncol=</span><span class="dv">2</span>)</span>
-<span id="cb30-2"><a href="objetsR.html#cb30-2"></a>m</span>
-<span id="cb30-3"><a href="objetsR.html#cb30-3"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb30-4"><a href="objetsR.html#cb30-4"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span></span>
-<span id="cb30-5"><a href="objetsR.html#cb30-5"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span></span>
-<span id="cb30-6"><a href="objetsR.html#cb30-6"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span>
-<span id="cb30-7"><a href="objetsR.html#cb30-7"></a>m</span>
-<span id="cb30-8"><a href="objetsR.html#cb30-8"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb30-9"><a href="objetsR.html#cb30-9"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span></span>
-<span id="cb30-10"><a href="objetsR.html#cb30-10"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span></span>
-<span id="cb30-11"><a href="objetsR.html#cb30-11"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</span>
-<span id="cb30-12"><a href="objetsR.html#cb30-12"></a><span class="kw">dim</span>(m)</span>
-<span id="cb30-13"><a href="objetsR.html#cb30-13"></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="objetsR.html#cb31-1"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dt">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb31-2"><a href="objetsR.html#cb31-2"></a>m</span>
+<span id="cb31-3"><a href="objetsR.html#cb31-3"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
+<span id="cb31-4"><a href="objetsR.html#cb31-4"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span></span>
+<span id="cb31-5"><a href="objetsR.html#cb31-5"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span></span>
+<span id="cb31-6"><a href="objetsR.html#cb31-6"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb31-7"><a href="objetsR.html#cb31-7"></a>m</span>
+<span id="cb31-8"><a href="objetsR.html#cb31-8"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
+<span id="cb31-9"><a href="objetsR.html#cb31-9"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span></span>
+<span id="cb31-10"><a href="objetsR.html#cb31-10"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span></span>
+<span id="cb31-11"><a href="objetsR.html#cb31-11"></a>m &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,<span class="dt">nrow=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</span>
+<span id="cb31-12"><a href="objetsR.html#cb31-12"></a><span class="kw">dim</span>(m)</span>
+<span id="cb31-13"><a href="objetsR.html#cb31-13"></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">2</span></span></code></pre></div>
 <p>La position d’un élement dans une matrice est indiquée par ses numéros de ligne et de colonne. Ainsi, pour séléctionner le terme de la 2ème ligne et la 1ère colonne, on utilisera</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="objetsR.html#cb31-1"></a>m[<span class="dv">2</span>,<span class="dv">1</span>]</span>
-<span id="cb31-2"><a href="objetsR.html#cb31-2"></a>[<span class="dv">1</span>] <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="objetsR.html#cb32-1"></a>m[<span class="dv">2</span>,<span class="dv">1</span>]</span>
+<span id="cb32-2"><a href="objetsR.html#cb32-2"></a>[<span class="dv">1</span>] <span class="dv">3</span></span></code></pre></div>
 <p>On peut aussi extraire des lignes et des colonnes :</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="objetsR.html#cb32-1"></a>m[<span class="dv">1</span>,] <span class="co">#première ligne</span></span>
-<span id="cb32-2"><a href="objetsR.html#cb32-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span></span>
-<span id="cb32-3"><a href="objetsR.html#cb32-3"></a>m[,<span class="dv">2</span>] <span class="co">#deuxième colonne</span></span>
-<span id="cb32-4"><a href="objetsR.html#cb32-4"></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="objetsR.html#cb33-1"></a>m[<span class="dv">1</span>,] <span class="co">#première ligne</span></span>
+<span id="cb33-2"><a href="objetsR.html#cb33-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span></span>
+<span id="cb33-3"><a href="objetsR.html#cb33-3"></a>m[,<span class="dv">2</span>] <span class="co">#deuxième colonne</span></span>
+<span id="cb33-4"><a href="objetsR.html#cb33-4"></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">4</span></span></code></pre></div>
 <p>Il n’est pas difficile de faire les calculs usuels sur les matrices :</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="objetsR.html#cb33-1"></a><span class="kw">det</span>(m) <span class="co">#déterminant</span></span>
-<span id="cb33-2"><a href="objetsR.html#cb33-2"></a>[<span class="dv">1</span>] <span class="dv">-2</span></span>
-<span id="cb33-3"><a href="objetsR.html#cb33-3"></a><span class="kw">solve</span>(m) <span class="co">#inverse</span></span>
-<span id="cb33-4"><a href="objetsR.html#cb33-4"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb33-5"><a href="objetsR.html#cb33-5"></a>[<span class="dv">1</span>,] <span class="fl">-2.0</span>  <span class="fl">1.0</span></span>
-<span id="cb33-6"><a href="objetsR.html#cb33-6"></a>[<span class="dv">2</span>,]  <span class="fl">1.5</span> <span class="fl">-0.5</span></span>
-<span id="cb33-7"><a href="objetsR.html#cb33-7"></a><span class="kw">t</span>(m) <span class="co">#transposé</span></span>
-<span id="cb33-8"><a href="objetsR.html#cb33-8"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb33-9"><a href="objetsR.html#cb33-9"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span></span>
-<span id="cb33-10"><a href="objetsR.html#cb33-10"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span></span>
-<span id="cb33-11"><a href="objetsR.html#cb33-11"></a>n &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">8</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span>
-<span id="cb33-12"><a href="objetsR.html#cb33-12"></a>m<span class="op">+</span>n</span>
-<span id="cb33-13"><a href="objetsR.html#cb33-13"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb33-14"><a href="objetsR.html#cb33-14"></a>[<span class="dv">1</span>,]    <span class="dv">6</span>    <span class="dv">9</span></span>
-<span id="cb33-15"><a href="objetsR.html#cb33-15"></a>[<span class="dv">2</span>,]    <span class="dv">9</span>   <span class="dv">12</span></span>
-<span id="cb33-16"><a href="objetsR.html#cb33-16"></a>m<span class="op">*</span>n <span class="co">#attention : produit de Hadamart</span></span>
-<span id="cb33-17"><a href="objetsR.html#cb33-17"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb33-18"><a href="objetsR.html#cb33-18"></a>[<span class="dv">1</span>,]    <span class="dv">5</span>   <span class="dv">14</span></span>
-<span id="cb33-19"><a href="objetsR.html#cb33-19"></a>[<span class="dv">2</span>,]   <span class="dv">18</span>   <span class="dv">32</span></span>
-<span id="cb33-20"><a href="objetsR.html#cb33-20"></a>m<span class="op">%*%</span>n <span class="co">#Produit matriciel</span></span>
-<span id="cb33-21"><a href="objetsR.html#cb33-21"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
-<span id="cb33-22"><a href="objetsR.html#cb33-22"></a>[<span class="dv">1</span>,]   <span class="dv">17</span>   <span class="dv">23</span></span>
-<span id="cb33-23"><a href="objetsR.html#cb33-23"></a>[<span class="dv">2</span>,]   <span class="dv">39</span>   <span class="dv">53</span></span>
-<span id="cb33-24"><a href="objetsR.html#cb33-24"></a><span class="kw">eigen</span>(m) <span class="co">#Décomposition en valeurs propres</span></span>
-<span id="cb33-25"><a href="objetsR.html#cb33-25"></a><span class="kw">eigen</span>() decomposition</span>
-<span id="cb33-26"><a href="objetsR.html#cb33-26"></a><span class="op">$</span>values</span>
-<span id="cb33-27"><a href="objetsR.html#cb33-27"></a>[<span class="dv">1</span>]  <span class="fl">5.3722813</span> <span class="fl">-0.3722813</span></span>
-<span id="cb33-28"><a href="objetsR.html#cb33-28"></a></span>
-<span id="cb33-29"><a href="objetsR.html#cb33-29"></a><span class="op">$</span>vectors</span>
-<span id="cb33-30"><a href="objetsR.html#cb33-30"></a>           [,<span class="dv">1</span>]       [,<span class="dv">2</span>]</span>
-<span id="cb33-31"><a href="objetsR.html#cb33-31"></a>[<span class="dv">1</span>,] <span class="fl">-0.4159736</span> <span class="fl">-0.8245648</span></span>
-<span id="cb33-32"><a href="objetsR.html#cb33-32"></a>[<span class="dv">2</span>,] <span class="fl">-0.9093767</span>  <span class="fl">0.5657675</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="objetsR.html#cb34-1"></a><span class="kw">det</span>(m) <span class="co">#déterminant</span></span>
+<span id="cb34-2"><a href="objetsR.html#cb34-2"></a>[<span class="dv">1</span>] <span class="dv">-2</span></span>
+<span id="cb34-3"><a href="objetsR.html#cb34-3"></a><span class="kw">solve</span>(m) <span class="co">#inverse</span></span>
+<span id="cb34-4"><a href="objetsR.html#cb34-4"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
+<span id="cb34-5"><a href="objetsR.html#cb34-5"></a>[<span class="dv">1</span>,] <span class="fl">-2.0</span>  <span class="fl">1.0</span></span>
+<span id="cb34-6"><a href="objetsR.html#cb34-6"></a>[<span class="dv">2</span>,]  <span class="fl">1.5</span> <span class="fl">-0.5</span></span>
+<span id="cb34-7"><a href="objetsR.html#cb34-7"></a><span class="kw">t</span>(m) <span class="co">#transposé</span></span>
+<span id="cb34-8"><a href="objetsR.html#cb34-8"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
+<span id="cb34-9"><a href="objetsR.html#cb34-9"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span></span>
+<span id="cb34-10"><a href="objetsR.html#cb34-10"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span></span>
+<span id="cb34-11"><a href="objetsR.html#cb34-11"></a>n &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">5</span><span class="op">:</span><span class="dv">8</span>,<span class="dt">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb34-12"><a href="objetsR.html#cb34-12"></a>m<span class="op">+</span>n</span>
+<span id="cb34-13"><a href="objetsR.html#cb34-13"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
+<span id="cb34-14"><a href="objetsR.html#cb34-14"></a>[<span class="dv">1</span>,]    <span class="dv">6</span>    <span class="dv">9</span></span>
+<span id="cb34-15"><a href="objetsR.html#cb34-15"></a>[<span class="dv">2</span>,]    <span class="dv">9</span>   <span class="dv">12</span></span>
+<span id="cb34-16"><a href="objetsR.html#cb34-16"></a>m<span class="op">*</span>n <span class="co">#attention : produit de Hadamart</span></span>
+<span id="cb34-17"><a href="objetsR.html#cb34-17"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
+<span id="cb34-18"><a href="objetsR.html#cb34-18"></a>[<span class="dv">1</span>,]    <span class="dv">5</span>   <span class="dv">14</span></span>
+<span id="cb34-19"><a href="objetsR.html#cb34-19"></a>[<span class="dv">2</span>,]   <span class="dv">18</span>   <span class="dv">32</span></span>
+<span id="cb34-20"><a href="objetsR.html#cb34-20"></a>m<span class="op">%*%</span>n <span class="co">#Produit matriciel</span></span>
+<span id="cb34-21"><a href="objetsR.html#cb34-21"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>]</span>
+<span id="cb34-22"><a href="objetsR.html#cb34-22"></a>[<span class="dv">1</span>,]   <span class="dv">17</span>   <span class="dv">23</span></span>
+<span id="cb34-23"><a href="objetsR.html#cb34-23"></a>[<span class="dv">2</span>,]   <span class="dv">39</span>   <span class="dv">53</span></span>
+<span id="cb34-24"><a href="objetsR.html#cb34-24"></a><span class="kw">eigen</span>(m) <span class="co">#Décomposition en valeurs propres</span></span>
+<span id="cb34-25"><a href="objetsR.html#cb34-25"></a><span class="kw">eigen</span>() decomposition</span>
+<span id="cb34-26"><a href="objetsR.html#cb34-26"></a><span class="op">$</span>values</span>
+<span id="cb34-27"><a href="objetsR.html#cb34-27"></a>[<span class="dv">1</span>]  <span class="fl">5.3722813</span> <span class="fl">-0.3722813</span></span>
+<span id="cb34-28"><a href="objetsR.html#cb34-28"></a></span>
+<span id="cb34-29"><a href="objetsR.html#cb34-29"></a><span class="op">$</span>vectors</span>
+<span id="cb34-30"><a href="objetsR.html#cb34-30"></a>           [,<span class="dv">1</span>]       [,<span class="dv">2</span>]</span>
+<span id="cb34-31"><a href="objetsR.html#cb34-31"></a>[<span class="dv">1</span>,] <span class="fl">-0.4159736</span> <span class="fl">-0.8245648</span></span>
+<span id="cb34-32"><a href="objetsR.html#cb34-32"></a>[<span class="dv">2</span>,] <span class="fl">-0.9093767</span>  <span class="fl">0.5657675</span></span></code></pre></div>
 </div>
 <div id="listes" class="section level2">
 <h2><span class="header-section-number">2.4</span> Listes</h2>
 <p>Une liste est un objet hétérogène. Elle permet de stocker des objets de différents modes dans un même objet. Par exemple, on peut céer une liste qui contient un vecteur et une matrice à l’aide de</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="objetsR.html#cb34-1"></a>mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">vector=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>),<span class="dt">mat=</span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,<span class="dt">nrow=</span><span class="dv">2</span>))</span>
-<span id="cb34-2"><a href="objetsR.html#cb34-2"></a>mylist</span>
-<span id="cb34-3"><a href="objetsR.html#cb34-3"></a><span class="op">$</span>vector</span>
-<span id="cb34-4"><a href="objetsR.html#cb34-4"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></span>
-<span id="cb34-5"><a href="objetsR.html#cb34-5"></a></span>
-<span id="cb34-6"><a href="objetsR.html#cb34-6"></a><span class="op">$</span>mat</span>
-<span id="cb34-7"><a href="objetsR.html#cb34-7"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>] [,<span class="dv">3</span>] [,<span class="dv">4</span>]</span>
-<span id="cb34-8"><a href="objetsR.html#cb34-8"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span>    <span class="dv">5</span>    <span class="dv">7</span></span>
-<span id="cb34-9"><a href="objetsR.html#cb34-9"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span>    <span class="dv">6</span>    <span class="dv">8</span></span>
-<span id="cb34-10"><a href="objetsR.html#cb34-10"></a><span class="kw">length</span>(mylist)</span>
-<span id="cb34-11"><a href="objetsR.html#cb34-11"></a>[<span class="dv">1</span>] <span class="dv">2</span></span></code></pre></div>
-<p>L’extraction s’effectue en indiquant la position de l’objet à extraire dans un <strong>double crochet [[ ]]</strong> :</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objetsR.html#cb35-1"></a>mylist[[<span class="dv">1</span>]]</span>
-<span id="cb35-2"><a href="objetsR.html#cb35-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></span></code></pre></div>
-<p>On peut aussi utiliser le <strong>nom</strong> de l’élément à extraire :</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="objetsR.html#cb36-1"></a>mylist<span class="op">$</span>mat</span>
-<span id="cb36-2"><a href="objetsR.html#cb36-2"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>] [,<span class="dv">3</span>] [,<span class="dv">4</span>]</span>
-<span id="cb36-3"><a href="objetsR.html#cb36-3"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span>    <span class="dv">5</span>    <span class="dv">7</span></span>
-<span id="cb36-4"><a href="objetsR.html#cb36-4"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span>    <span class="dv">6</span>    <span class="dv">8</span></span>
-<span id="cb36-5"><a href="objetsR.html#cb36-5"></a>mylist[[<span class="st">&quot;mat&quot;</span>]]</span>
-<span id="cb36-6"><a href="objetsR.html#cb36-6"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>] [,<span class="dv">3</span>] [,<span class="dv">4</span>]</span>
-<span id="cb36-7"><a href="objetsR.html#cb36-7"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span>    <span class="dv">5</span>    <span class="dv">7</span></span>
-<span id="cb36-8"><a href="objetsR.html#cb36-8"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span>    <span class="dv">6</span>    <span class="dv">8</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="objetsR.html#cb35-1"></a>mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">vector=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>),<span class="dt">mat=</span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,<span class="dt">nrow=</span><span class="dv">2</span>))</span>
+<span id="cb35-2"><a href="objetsR.html#cb35-2"></a>mylist</span>
+<span id="cb35-3"><a href="objetsR.html#cb35-3"></a><span class="op">$</span>vector</span>
+<span id="cb35-4"><a href="objetsR.html#cb35-4"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></span>
+<span id="cb35-5"><a href="objetsR.html#cb35-5"></a></span>
+<span id="cb35-6"><a href="objetsR.html#cb35-6"></a><span class="op">$</span>mat</span>
+<span id="cb35-7"><a href="objetsR.html#cb35-7"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>] [,<span class="dv">3</span>] [,<span class="dv">4</span>]</span>
+<span id="cb35-8"><a href="objetsR.html#cb35-8"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span>    <span class="dv">5</span>    <span class="dv">7</span></span>
+<span id="cb35-9"><a href="objetsR.html#cb35-9"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span>    <span class="dv">6</span>    <span class="dv">8</span></span>
+<span id="cb35-10"><a href="objetsR.html#cb35-10"></a><span class="kw">length</span>(mylist)</span>
+<span id="cb35-11"><a href="objetsR.html#cb35-11"></a>[<span class="dv">1</span>] <span class="dv">2</span></span></code></pre></div>
+<p>L’extraction s’effectue en indiquant la position de l’objet à extraire dans un <strong>double crochet</strong> <code>[[  ]]</code> :</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="objetsR.html#cb36-1"></a>mylist[[<span class="dv">1</span>]]</span>
+<span id="cb36-2"><a href="objetsR.html#cb36-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></span></code></pre></div>
+<p>On peut aussi utiliser le <strong>nom de l’élément</strong> à extraire :</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="objetsR.html#cb37-1"></a>mylist<span class="op">$</span>mat</span>
+<span id="cb37-2"><a href="objetsR.html#cb37-2"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>] [,<span class="dv">3</span>] [,<span class="dv">4</span>]</span>
+<span id="cb37-3"><a href="objetsR.html#cb37-3"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span>    <span class="dv">5</span>    <span class="dv">7</span></span>
+<span id="cb37-4"><a href="objetsR.html#cb37-4"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span>    <span class="dv">6</span>    <span class="dv">8</span></span>
+<span id="cb37-5"><a href="objetsR.html#cb37-5"></a>mylist[[<span class="st">&quot;mat&quot;</span>]]</span>
+<span id="cb37-6"><a href="objetsR.html#cb37-6"></a>     [,<span class="dv">1</span>] [,<span class="dv">2</span>] [,<span class="dv">3</span>] [,<span class="dv">4</span>]</span>
+<span id="cb37-7"><a href="objetsR.html#cb37-7"></a>[<span class="dv">1</span>,]    <span class="dv">1</span>    <span class="dv">3</span>    <span class="dv">5</span>    <span class="dv">7</span></span>
+<span id="cb37-8"><a href="objetsR.html#cb37-8"></a>[<span class="dv">2</span>,]    <span class="dv">2</span>    <span class="dv">4</span>    <span class="dv">6</span>    <span class="dv">8</span></span></code></pre></div>
 </div>
 <div id="dataframe" class="section level2">
 <h2><span class="header-section-number">2.5</span> Dataframe</h2>
-<p>Les dataframes sont des listes particulières dont les composantes ont la même longueur, mais potentiellement des modes différents. C’est l’objet généralement utilisé pour les <strong>tableaux de données</strong> (qui contiennent souvent des variables quantitatives et qualitatives). Par exemple,</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="objetsR.html#cb37-1"></a>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Mary&quot;</span>,<span class="st">&quot;Steven&quot;</span>,<span class="st">&quot;Charlotte&quot;</span>,<span class="st">&quot;Peter&quot;</span>)</span>
-<span id="cb37-2"><a href="objetsR.html#cb37-2"></a>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>))</span>
-<span id="cb37-3"><a href="objetsR.html#cb37-3"></a>size &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">180</span>,<span class="dv">165</span>,<span class="dv">168</span>,<span class="dv">170</span>,<span class="dv">175</span>)</span>
-<span id="cb37-4"><a href="objetsR.html#cb37-4"></a>data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name,sex,size)</span>
-<span id="cb37-5"><a href="objetsR.html#cb37-5"></a><span class="kw">summary</span>(data)</span>
-<span id="cb37-6"><a href="objetsR.html#cb37-6"></a>     name           sex        size      </span>
-<span id="cb37-7"><a href="objetsR.html#cb37-7"></a> Length<span class="op">:</span><span class="dv">5</span>           F<span class="op">:</span><span class="dv">2</span>   Min.   <span class="op">:</span><span class="fl">165.0</span>  </span>
-<span id="cb37-8"><a href="objetsR.html#cb37-8"></a> Class <span class="op">:</span>character   M<span class="op">:</span><span class="dv">3</span>   1st Qu.<span class="op">:</span><span class="fl">168.0</span>  </span>
-<span id="cb37-9"><a href="objetsR.html#cb37-9"></a> Mode  <span class="op">:</span>character         Median <span class="op">:</span><span class="fl">170.0</span>  </span>
-<span id="cb37-10"><a href="objetsR.html#cb37-10"></a>                          Mean   <span class="op">:</span><span class="fl">171.6</span>  </span>
-<span id="cb37-11"><a href="objetsR.html#cb37-11"></a>                          3rd Qu.<span class="op">:</span><span class="fl">175.0</span>  </span>
-<span id="cb37-12"><a href="objetsR.html#cb37-12"></a>                          Max.   <span class="op">:</span><span class="fl">180.0</span>  </span></code></pre></div>
+<p>Les <strong>dataframes</strong> sont des listes particulières dont les composantes ont la même longueur, mais potentiellement des modes différents. C’est l’objet généralement utilisé pour les <strong>tableaux de données</strong> (qui contiennent souvent des variables quantitatives et qualitatives). Par exemple,</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="objetsR.html#cb38-1"></a>name &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Paul&quot;</span>,<span class="st">&quot;Mary&quot;</span>,<span class="st">&quot;Steven&quot;</span>,<span class="st">&quot;Charlotte&quot;</span>,<span class="st">&quot;Peter&quot;</span>)</span>
+<span id="cb38-2"><a href="objetsR.html#cb38-2"></a>sex &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">c</span>(<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>,<span class="st">&quot;F&quot;</span>,<span class="st">&quot;M&quot;</span>))</span>
+<span id="cb38-3"><a href="objetsR.html#cb38-3"></a>size &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">180</span>,<span class="dv">165</span>,<span class="dv">168</span>,<span class="dv">170</span>,<span class="dv">175</span>)</span>
+<span id="cb38-4"><a href="objetsR.html#cb38-4"></a>data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(name,sex,size)</span>
+<span id="cb38-5"><a href="objetsR.html#cb38-5"></a><span class="kw">summary</span>(data)</span>
+<span id="cb38-6"><a href="objetsR.html#cb38-6"></a>     name           sex        size      </span>
+<span id="cb38-7"><a href="objetsR.html#cb38-7"></a> Length<span class="op">:</span><span class="dv">5</span>           F<span class="op">:</span><span class="dv">2</span>   Min.   <span class="op">:</span><span class="fl">165.0</span>  </span>
+<span id="cb38-8"><a href="objetsR.html#cb38-8"></a> Class <span class="op">:</span>character   M<span class="op">:</span><span class="dv">3</span>   1st Qu.<span class="op">:</span><span class="fl">168.0</span>  </span>
+<span id="cb38-9"><a href="objetsR.html#cb38-9"></a> Mode  <span class="op">:</span>character         Median <span class="op">:</span><span class="fl">170.0</span>  </span>
+<span id="cb38-10"><a href="objetsR.html#cb38-10"></a>                          Mean   <span class="op">:</span><span class="fl">171.6</span>  </span>
+<span id="cb38-11"><a href="objetsR.html#cb38-11"></a>                          3rd Qu.<span class="op">:</span><span class="fl">175.0</span>  </span>
+<span id="cb38-12"><a href="objetsR.html#cb38-12"></a>                          Max.   <span class="op">:</span><span class="fl">180.0</span>  </span></code></pre></div>
 <p>On observe que <code>name</code> est un vecteur de caractères, <code>sex</code> un facteur et <code>size</code> un vecteur numérique.</p>
 <p>L’extraction est similaire aux matrices et aux listes :</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="objetsR.html#cb38-1"></a>data[<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb38-2"><a href="objetsR.html#cb38-2"></a>[<span class="dv">1</span>] <span class="dv">165</span></span>
-<span id="cb38-3"><a href="objetsR.html#cb38-3"></a>data[,<span class="dv">2</span>]</span>
-<span id="cb38-4"><a href="objetsR.html#cb38-4"></a>[<span class="dv">1</span>] M F M F M</span>
-<span id="cb38-5"><a href="objetsR.html#cb38-5"></a>Levels<span class="op">:</span><span class="st"> </span>F M</span>
-<span id="cb38-6"><a href="objetsR.html#cb38-6"></a>data<span class="op">$</span>sex</span>
-<span id="cb38-7"><a href="objetsR.html#cb38-7"></a>[<span class="dv">1</span>] M F M F M</span>
-<span id="cb38-8"><a href="objetsR.html#cb38-8"></a>Levels<span class="op">:</span><span class="st"> </span>F M</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="objetsR.html#cb39-1"></a>data[<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb39-2"><a href="objetsR.html#cb39-2"></a>[<span class="dv">1</span>] <span class="dv">165</span></span>
+<span id="cb39-3"><a href="objetsR.html#cb39-3"></a>data[,<span class="dv">2</span>]</span>
+<span id="cb39-4"><a href="objetsR.html#cb39-4"></a>[<span class="dv">1</span>] M F M F M</span>
+<span id="cb39-5"><a href="objetsR.html#cb39-5"></a>Levels<span class="op">:</span><span class="st"> </span>F M</span>
+<span id="cb39-6"><a href="objetsR.html#cb39-6"></a>data<span class="op">$</span>sex</span>
+<span id="cb39-7"><a href="objetsR.html#cb39-7"></a>[<span class="dv">1</span>] M F M F M</span>
+<span id="cb39-8"><a href="objetsR.html#cb39-8"></a>Levels<span class="op">:</span><span class="st"> </span>F M</span></code></pre></div>
 </div>
 <div id="quelques-fonctions-importantes" class="section level2">
 <h2><span class="header-section-number">2.6</span> Quelques fonctions importantes</h2>
 <ul>
 <li><p><strong>summary</strong> produit un résumé d’un objet</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="objetsR.html#cb39-1"></a><span class="kw">summary</span>(data)</span>
-<span id="cb39-2"><a href="objetsR.html#cb39-2"></a>     name           sex        size      </span>
-<span id="cb39-3"><a href="objetsR.html#cb39-3"></a> Length<span class="op">:</span><span class="dv">5</span>           F<span class="op">:</span><span class="dv">2</span>   Min.   <span class="op">:</span><span class="fl">165.0</span>  </span>
-<span id="cb39-4"><a href="objetsR.html#cb39-4"></a> Class <span class="op">:</span>character   M<span class="op">:</span><span class="dv">3</span>   1st Qu.<span class="op">:</span><span class="fl">168.0</span>  </span>
-<span id="cb39-5"><a href="objetsR.html#cb39-5"></a> Mode  <span class="op">:</span>character         Median <span class="op">:</span><span class="fl">170.0</span>  </span>
-<span id="cb39-6"><a href="objetsR.html#cb39-6"></a>                          Mean   <span class="op">:</span><span class="fl">171.6</span>  </span>
-<span id="cb39-7"><a href="objetsR.html#cb39-7"></a>                          3rd Qu.<span class="op">:</span><span class="fl">175.0</span>  </span>
-<span id="cb39-8"><a href="objetsR.html#cb39-8"></a>                          Max.   <span class="op">:</span><span class="fl">180.0</span>  </span>
-<span id="cb39-9"><a href="objetsR.html#cb39-9"></a><span class="kw">summary</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
-<span id="cb39-10"><a href="objetsR.html#cb39-10"></a>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span id="cb39-11"><a href="objetsR.html#cb39-11"></a>   <span class="fl">1.00</span>    <span class="fl">3.25</span>    <span class="fl">5.50</span>    <span class="fl">5.50</span>    <span class="fl">7.75</span>   <span class="fl">10.00</span> </span></code></pre></div></li>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="objetsR.html#cb40-1"></a><span class="kw">summary</span>(data)</span>
+<span id="cb40-2"><a href="objetsR.html#cb40-2"></a>     name           sex        size      </span>
+<span id="cb40-3"><a href="objetsR.html#cb40-3"></a> Length<span class="op">:</span><span class="dv">5</span>           F<span class="op">:</span><span class="dv">2</span>   Min.   <span class="op">:</span><span class="fl">165.0</span>  </span>
+<span id="cb40-4"><a href="objetsR.html#cb40-4"></a> Class <span class="op">:</span>character   M<span class="op">:</span><span class="dv">3</span>   1st Qu.<span class="op">:</span><span class="fl">168.0</span>  </span>
+<span id="cb40-5"><a href="objetsR.html#cb40-5"></a> Mode  <span class="op">:</span>character         Median <span class="op">:</span><span class="fl">170.0</span>  </span>
+<span id="cb40-6"><a href="objetsR.html#cb40-6"></a>                          Mean   <span class="op">:</span><span class="fl">171.6</span>  </span>
+<span id="cb40-7"><a href="objetsR.html#cb40-7"></a>                          3rd Qu.<span class="op">:</span><span class="fl">175.0</span>  </span>
+<span id="cb40-8"><a href="objetsR.html#cb40-8"></a>                          Max.   <span class="op">:</span><span class="fl">180.0</span>  </span>
+<span id="cb40-9"><a href="objetsR.html#cb40-9"></a><span class="kw">summary</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>)</span>
+<span id="cb40-10"><a href="objetsR.html#cb40-10"></a>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
+<span id="cb40-11"><a href="objetsR.html#cb40-11"></a>   <span class="fl">1.00</span>    <span class="fl">3.25</span>    <span class="fl">5.50</span>    <span class="fl">5.50</span>    <span class="fl">7.75</span>   <span class="fl">10.00</span> </span></code></pre></div></li>
 <li><p><strong>mean</strong>, <strong>sum</strong>, <strong>median</strong>, <strong>var</strong>, <strong>min</strong>, <strong>max</strong>… (facile à comprendre)</p></li>
-<li><p><strong>sort</strong>, <strong>order</strong></p></li>
+<li><p><strong>sort</strong>, <strong>order</strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="objetsR.html#cb41-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">4</span>)</span>
+<span id="cb41-2"><a href="objetsR.html#cb41-2"></a><span class="kw">sort</span>(x)</span>
+<span id="cb41-3"><a href="objetsR.html#cb41-3"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">4</span> <span class="dv">5</span> <span class="dv">8</span></span>
+<span id="cb41-4"><a href="objetsR.html#cb41-4"></a><span class="kw">order</span>(x)</span>
+<span id="cb41-5"><a href="objetsR.html#cb41-5"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">4</span> <span class="dv">3</span> <span class="dv">2</span></span></code></pre></div></li>
+<li><p><strong>apply</strong> applique une fonction <strong>f</strong> aux lignes ou colonnes d’une matrice ou dataframe</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="objetsR.html#cb42-1"></a>V1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb42-2"><a href="objetsR.html#cb42-2"></a>V2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">20</span>,<span class="dv">25</span>,<span class="dt">length=</span><span class="dv">10</span>)</span>
+<span id="cb42-3"><a href="objetsR.html#cb42-3"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(V1,V2)</span>
+<span id="cb42-4"><a href="objetsR.html#cb42-4"></a><span class="kw">apply</span>(df,<span class="dv">1</span>,mean)</span>
+<span id="cb42-5"><a href="objetsR.html#cb42-5"></a> [<span class="dv">1</span>] <span class="fl">-9.5</span> <span class="fl">-6.5</span> <span class="fl">-3.5</span> <span class="fl">-0.5</span>  <span class="fl">2.5</span>  <span class="fl">5.5</span>  <span class="fl">8.5</span> <span class="fl">11.5</span> <span class="fl">14.5</span> <span class="fl">17.5</span></span>
+<span id="cb42-6"><a href="objetsR.html#cb42-6"></a><span class="kw">apply</span>(df,<span class="dv">2</span>,sum)</span>
+<span id="cb42-7"><a href="objetsR.html#cb42-7"></a>V1 V2 </span>
+<span id="cb42-8"><a href="objetsR.html#cb42-8"></a><span class="dv">55</span> <span class="dv">25</span> </span></code></pre></div></li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="objetsR.html#cb40-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">4</span>)</span>
-<span id="cb40-2"><a href="objetsR.html#cb40-2"></a><span class="kw">sort</span>(x)</span>
-<span id="cb40-3"><a href="objetsR.html#cb40-3"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">4</span> <span class="dv">5</span> <span class="dv">8</span></span>
-<span id="cb40-4"><a href="objetsR.html#cb40-4"></a><span class="kw">order</span>(x)</span>
-<span id="cb40-5"><a href="objetsR.html#cb40-5"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">4</span> <span class="dv">3</span> <span class="dv">2</span></span></code></pre></div>
-<ul>
-<li><strong>apply</strong> applique une fonction <strong>f</strong> aux lignes ou colonnes d’une matrice ou dataframe</li>
-</ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="objetsR.html#cb41-1"></a>V1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span></span>
-<span id="cb41-2"><a href="objetsR.html#cb41-2"></a>V2 &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="op">-</span><span class="dv">20</span>,<span class="dv">25</span>,<span class="dt">length=</span><span class="dv">10</span>)</span>
-<span id="cb41-3"><a href="objetsR.html#cb41-3"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(V1,V2)</span>
-<span id="cb41-4"><a href="objetsR.html#cb41-4"></a><span class="kw">apply</span>(df,<span class="dv">1</span>,mean)</span>
-<span id="cb41-5"><a href="objetsR.html#cb41-5"></a> [<span class="dv">1</span>] <span class="fl">-9.5</span> <span class="fl">-6.5</span> <span class="fl">-3.5</span> <span class="fl">-0.5</span>  <span class="fl">2.5</span>  <span class="fl">5.5</span>  <span class="fl">8.5</span> <span class="fl">11.5</span> <span class="fl">14.5</span> <span class="fl">17.5</span></span>
-<span id="cb41-6"><a href="objetsR.html#cb41-6"></a><span class="kw">apply</span>(df,<span class="dv">2</span>,sum)</span>
-<span id="cb41-7"><a href="objetsR.html#cb41-7"></a>V1 V2 </span>
-<span id="cb41-8"><a href="objetsR.html#cb41-8"></a><span class="dv">55</span> <span class="dv">25</span> </span></code></pre></div>
 </div>
 <div id="exercices-complémentaires" class="section level2">
 <h2><span class="header-section-number">2.7</span> Exercices complémentaires</h2>
@@ -538,7 +539,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 <ol style="list-style-type: decimal">
-<li><p>Créer la matrice suivante que l’on appellera <em>mat</em> (on pourra utiliser les fonctions <strong>rownames</strong> et <strong>colnames</strong>) :</p>
+<li><p>Créer la matrice suivante que l’on appellera <strong>mat</strong> (on pourra utiliser les fonctions <code>rownames</code> et <code>colnames</code>) :</p>
 <table>
 <thead>
 <tr class="header">
@@ -587,19 +588,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 <div class="exercise">
-<span id="exr:exo-manip-iris" class="exercise"><strong>Exercice 2.3  (Manipulation simples sur un jeu de données)  </strong></span>
+<span id="exr:exo-manip-iris" class="exercise"><strong>Exercice 2.3  (Manipulations simples sur un jeu de données)  </strong></span>
 </div>
 
-<p>On considère le jeu de données <strong>iris</strong> disponible sous <strong>R</strong> :</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="objetsR.html#cb42-1"></a><span class="kw">data</span>(iris)</span>
-<span id="cb42-2"><a href="objetsR.html#cb42-2"></a><span class="kw">head</span>(iris)</span>
-<span id="cb42-3"><a href="objetsR.html#cb42-3"></a>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
-<span id="cb42-4"><a href="objetsR.html#cb42-4"></a><span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb42-5"><a href="objetsR.html#cb42-5"></a><span class="dv">2</span>          <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb42-6"><a href="objetsR.html#cb42-6"></a><span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb42-7"><a href="objetsR.html#cb42-7"></a><span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb42-8"><a href="objetsR.html#cb42-8"></a><span class="dv">5</span>          <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
-<span id="cb42-9"><a href="objetsR.html#cb42-9"></a><span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>  setosa</span></code></pre></div>
+<p>On considère le jeu de données <strong>iris</strong> disponible dans <strong>R</strong> :</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="objetsR.html#cb43-1"></a><span class="kw">data</span>(iris)</span>
+<span id="cb43-2"><a href="objetsR.html#cb43-2"></a><span class="kw">head</span>(iris)</span>
+<span id="cb43-3"><a href="objetsR.html#cb43-3"></a>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species</span>
+<span id="cb43-4"><a href="objetsR.html#cb43-4"></a><span class="dv">1</span>          <span class="fl">5.1</span>         <span class="fl">3.5</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb43-5"><a href="objetsR.html#cb43-5"></a><span class="dv">2</span>          <span class="fl">4.9</span>         <span class="fl">3.0</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb43-6"><a href="objetsR.html#cb43-6"></a><span class="dv">3</span>          <span class="fl">4.7</span>         <span class="fl">3.2</span>          <span class="fl">1.3</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb43-7"><a href="objetsR.html#cb43-7"></a><span class="dv">4</span>          <span class="fl">4.6</span>         <span class="fl">3.1</span>          <span class="fl">1.5</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb43-8"><a href="objetsR.html#cb43-8"></a><span class="dv">5</span>          <span class="fl">5.0</span>         <span class="fl">3.6</span>          <span class="fl">1.4</span>         <span class="fl">0.2</span>  setosa</span>
+<span id="cb43-9"><a href="objetsR.html#cb43-9"></a><span class="dv">6</span>          <span class="fl">5.4</span>         <span class="fl">3.9</span>          <span class="fl">1.7</span>         <span class="fl">0.4</span>  setosa</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><p>Calculer les moyennes et variances des variables <code>Sepal.Width</code> et <code>Petal.Length</code>.</p></li>
 <li><p>Créer un sous jeu de données qui contient uniquement les iris de l’espèce <code>versicolor</code>. On appellera ce tableau <strong>iris2</strong>.</p></li>
@@ -614,8 +615,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ol style="list-style-type: decimal">
 <li><p>Calculer les indicateurs numériques standards (moyenne, min, max, etc.) des 3 variables du jeux de données <strong>ethanol</strong> (disponible dans le package <em>lattice</em>).</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="objetsR.html#cb43-1"></a><span class="kw">library</span>(lattice)</span>
-<span id="cb43-2"><a href="objetsR.html#cb43-2"></a><span class="kw">data</span>(<span class="st">&quot;ethanol&quot;</span>)</span></code></pre></div></li>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="objetsR.html#cb44-1"></a><span class="kw">library</span>(lattice)</span>
+<span id="cb44-2"><a href="objetsR.html#cb44-2"></a><span class="kw">data</span>(<span class="st">&quot;ethanol&quot;</span>)</span></code></pre></div></li>
 <li><p>Calculer les quartiles de chaque variables. On pourra faire un <strong>apply</strong> avec la fonction <strong>quantile</strong>.</p></li>
 <li><p>Faire de même pour les déciles.</p></li>
 </ol>
@@ -625,8 +626,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 <p>On considère le jeu de données <strong>presidents</strong></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="objetsR.html#cb44-1"></a><span class="kw">data</span>(<span class="st">&quot;presidents&quot;</span>)</span>
-<span id="cb44-2"><a href="objetsR.html#cb44-2"></a>df &lt;-<span class="st"> </span><span class="kw">matrix</span>(presidents,<span class="dt">ncol=</span><span class="dv">4</span>,<span class="dt">byrow=</span>T)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="objetsR.html#cb45-1"></a><span class="kw">data</span>(<span class="st">&quot;presidents&quot;</span>)</span>
+<span id="cb45-2"><a href="objetsR.html#cb45-2"></a>df &lt;-<span class="st"> </span><span class="kw">matrix</span>(presidents,<span class="dt">ncol=</span><span class="dv">4</span>,<span class="dt">byrow=</span>T)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><p>Est-ce que la ligne 20 contient au moins une données manquante ? On pourra utiliser la fonction <strong>any</strong>.</p></li>
 <li><p>Quelles sont les lignes de <strong>df</strong> qui contiennent au moins une donnée manquante ? On pourra utiliser la fonction <strong>which</strong>.</p></li>

@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-09-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,14 +191,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ggplot2.html"><a href="ggplot2.html#la-fonction-plot"><i class="fa fa-check"></i><b>4.1.1</b> La fonction <strong>plot</strong></a></li>
 <li class="chapter" data-level="4.1.2" data-path="ggplot2.html"><a href="ggplot2.html#graphes-interactifs-avec-ramcharts"><i class="fa fa-check"></i><b>4.1.2</b> Graphes interactifs avec rAmCharts</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dplyr.html"><a href="dplyr.html#quelques-exercices"><i class="fa fa-check"></i><b>4.1.3</b> Quelques exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a><ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot2.html"><a href="ggplot2.html#premiers-graphes-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Premiers graphes <code>ggplot2</code></a></li>
 <li class="chapter" data-level="4.2.2" data-path="ggplot2.html"><a href="ggplot2.html#data-et-aesthetics"><i class="fa fa-check"></i><b>4.2.2</b> Data et aesthetics</a></li>
-<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> <code>Geometrics</code></a></li>
-<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> <code>Statistics</code></a></li>
-<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> <code>Scales</code></a></li>
-<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> <code>Group et facets</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> Geometrics</a></li>
+<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> Statistics</a></li>
+<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> Scales</a></li>
+<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> Group et facets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="ggplot2.html"><a href="ggplot2.html#compléments"><i class="fa fa-check"></i><b>4.3</b> Compléments</a></li>
 <li class="chapter" data-level="4.4" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-supplémentaires"><i class="fa fa-check"></i><b>4.4</b> Quelques exercices supplémentaires</a></li>
@@ -301,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>les éventuelles options de la méthode considérée.</li>
 </ul>
 <p>Par exemple la commande</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="faire-de-la-régression-sur-r.html#cb143-1"></a><span class="kw">method</span>(Y<span class="op">~</span>X1<span class="op">+</span>X3,<span class="dt">data=</span>df,...)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="faire-de-la-régression-sur-r.html#cb144-1"></a><span class="kw">method</span>(Y<span class="op">~</span>X1<span class="op">+</span>X3,<span class="dt">data=</span>df,...)</span></code></pre></div>
 <p>ajustera le modèle <strong>method</strong> pour expliquer <span class="math inline">\(Y\)</span> par <span class="math inline">\(X_1\)</span> et <span class="math inline">\(X_3\)</span> avec les données dans <strong>df</strong> (les points représentent d’éventuelles options). Voici quelques exemples de méthodes :</p>
 <table>
 <thead>
@@ -394,23 +395,23 @@ La performance d’un estimateur <span class="math inline">\(\widehat{m}\)</span
 <p>On considère le modèle de régression linéaire
 <span class="math display">\[Y=\beta_0+\beta_1X_1+\dots+\beta_pX_p+\varepsilon\]</span>
 où <span class="math inline">\(X_1,\dots,X_p\)</span> sont les variables explicatives, <span class="math inline">\(Y\)</span> la variable à expliquer et <span class="math inline">\(\varepsilon\)</span> le terme d’erreur. On fixe <span class="math inline">\(p=5\)</span> et on considère les données suivantes :</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="faire-de-la-régression-sur-r.html#cb144-1"></a>n &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb144-2"><a href="faire-de-la-régression-sur-r.html#cb144-2"></a>p &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb144-3"><a href="faire-de-la-régression-sur-r.html#cb144-3"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb144-4"><a href="faire-de-la-régression-sur-r.html#cb144-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n<span class="op">*</span>p),<span class="dt">ncol=</span>p)</span>
-<span id="cb144-5"><a href="faire-de-la-régression-sur-r.html#cb144-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
-<span id="cb144-6"><a href="faire-de-la-régression-sur-r.html#cb144-6"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
-<span id="cb144-7"><a href="faire-de-la-régression-sur-r.html#cb144-7"></a>df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="faire-de-la-régression-sur-r.html#cb145-1"></a>n &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb145-2"><a href="faire-de-la-régression-sur-r.html#cb145-2"></a>p &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb145-3"><a href="faire-de-la-régression-sur-r.html#cb145-3"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb145-4"><a href="faire-de-la-régression-sur-r.html#cb145-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n<span class="op">*</span>p),<span class="dt">ncol=</span>p)</span>
+<span id="cb145-5"><a href="faire-de-la-régression-sur-r.html#cb145-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
+<span id="cb145-6"><a href="faire-de-la-régression-sur-r.html#cb145-6"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
+<span id="cb145-7"><a href="faire-de-la-régression-sur-r.html#cb145-7"></a>df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><p>Construire un modèle linaire permettant d’expliquer <span class="math inline">\(Y\)</span> par <span class="math inline">\(X_1,\dots,X_5\)</span> (utiliser la fonction <strong>lm</strong>) et afficher les estimateurs de <span class="math inline">\(\beta_0,\dots,\beta_5\)</span> (on pourra utiliser les fonctions <strong>coef</strong> et <strong>summary</strong>).</p></li>
 <li><p>On considère le jeu de données test suivant.</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="faire-de-la-régression-sur-r.html#cb145-1"></a>m &lt;-<span class="st"> </span><span class="dv">500</span></span>
-<span id="cb145-2"><a href="faire-de-la-régression-sur-r.html#cb145-2"></a>p &lt;-<span class="st"> </span><span class="dv">5</span></span>
-<span id="cb145-3"><a href="faire-de-la-régression-sur-r.html#cb145-3"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb145-4"><a href="faire-de-la-régression-sur-r.html#cb145-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(m<span class="op">*</span>p),<span class="dt">ncol=</span><span class="dv">5</span>)</span>
-<span id="cb145-5"><a href="faire-de-la-régression-sur-r.html#cb145-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(m,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
-<span id="cb145-6"><a href="faire-de-la-régression-sur-r.html#cb145-6"></a>df.test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
-<span id="cb145-7"><a href="faire-de-la-régression-sur-r.html#cb145-7"></a>df.test &lt;-<span class="st"> </span>df.test <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="faire-de-la-régression-sur-r.html#cb146-1"></a>m &lt;-<span class="st"> </span><span class="dv">500</span></span>
+<span id="cb146-2"><a href="faire-de-la-régression-sur-r.html#cb146-2"></a>p &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb146-3"><a href="faire-de-la-régression-sur-r.html#cb146-3"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb146-4"><a href="faire-de-la-régression-sur-r.html#cb146-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(m<span class="op">*</span>p),<span class="dt">ncol=</span><span class="dv">5</span>)</span>
+<span id="cb146-5"><a href="faire-de-la-régression-sur-r.html#cb146-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(m,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
+<span id="cb146-6"><a href="faire-de-la-régression-sur-r.html#cb146-6"></a>df.test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
+<span id="cb146-7"><a href="faire-de-la-régression-sur-r.html#cb146-7"></a>df.test &lt;-<span class="st"> </span>df.test <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div>
 <p>Calculer, pour chaque individu de ce nouveau jeu de données, les prédictions faites par le modèle de la question précédente (utiliser la fonction <strong>predict</strong> avec l’option <em>newdata</em>).</p></li>
 <li><p>Créer un nouveau dataframe qui contiennent les valeurs prédites <span class="math inline">\(\widehat y_i\)</span> à la question précédente sur une colonne et les valeurs observées <span class="math inline">\(y_i\)</span> du jeu de données <code>df.test</code> sur une autre colonne.</p></li>
 <li><p>A l’aide du verbe <strong>summarize</strong>, calculer l’erreur quadratique moyenne (estimée) du modèle linéaire :
@@ -420,13 +421,13 @@ où <span class="math inline">\(X_1,\dots,X_p\)</span> sont les variables explic
 <div id="sélection-de-variables" class="section level2">
 <h2><span class="header-section-number">6.2</span> Sélection de variables</h2>
 <p>On considère les données suivantes</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="faire-de-la-régression-sur-r.html#cb146-1"></a>n &lt;-<span class="st"> </span><span class="dv">1000</span></span>
-<span id="cb146-2"><a href="faire-de-la-régression-sur-r.html#cb146-2"></a>p &lt;-<span class="st"> </span><span class="dv">105</span></span>
-<span id="cb146-3"><a href="faire-de-la-régression-sur-r.html#cb146-3"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb146-4"><a href="faire-de-la-régression-sur-r.html#cb146-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n<span class="op">*</span>p),<span class="dt">ncol=</span>p)</span>
-<span id="cb146-5"><a href="faire-de-la-régression-sur-r.html#cb146-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
-<span id="cb146-6"><a href="faire-de-la-régression-sur-r.html#cb146-6"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
-<span id="cb146-7"><a href="faire-de-la-régression-sur-r.html#cb146-7"></a>df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="faire-de-la-régression-sur-r.html#cb147-1"></a>n &lt;-<span class="st"> </span><span class="dv">1000</span></span>
+<span id="cb147-2"><a href="faire-de-la-régression-sur-r.html#cb147-2"></a>p &lt;-<span class="st"> </span><span class="dv">105</span></span>
+<span id="cb147-3"><a href="faire-de-la-régression-sur-r.html#cb147-3"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb147-4"><a href="faire-de-la-régression-sur-r.html#cb147-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(n<span class="op">*</span>p),<span class="dt">ncol=</span>p)</span>
+<span id="cb147-5"><a href="faire-de-la-régression-sur-r.html#cb147-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
+<span id="cb147-6"><a href="faire-de-la-régression-sur-r.html#cb147-6"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
+<span id="cb147-7"><a href="faire-de-la-régression-sur-r.html#cb147-7"></a>df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div>
 <p>issues du modèle
 <span class="math display">\[Y=\beta_0+\beta_1X_1+\dots+\beta_pX_p+\varepsilon\]</span>
 avec <span class="math inline">\(p=105\)</span>. On remarquera que seules les variables <span class="math inline">\(X_1,\dots,X_5\)</span> sont explicatives.</p>
@@ -439,20 +440,20 @@ avec <span class="math inline">\(p=105\)</span>. On remarquera que seules les va
 <li><p>Calculer les erreurs quadratiques de prévision
 <span class="math display">\[\frac{1}{m}\sum_{i\in test}(\widehat y_i-y_i)^2\]</span>
 des deux modèles (le modèle complet et le modèle sélectionné) en utilisant le jeu de données test suivant.</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="faire-de-la-régression-sur-r.html#cb147-1"></a>m &lt;-<span class="st"> </span><span class="dv">300</span></span>
-<span id="cb147-2"><a href="faire-de-la-régression-sur-r.html#cb147-2"></a>p &lt;-<span class="st"> </span><span class="dv">105</span></span>
-<span id="cb147-3"><a href="faire-de-la-régression-sur-r.html#cb147-3"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
-<span id="cb147-4"><a href="faire-de-la-régression-sur-r.html#cb147-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(m<span class="op">*</span>p),<span class="dt">ncol=</span>p)</span>
-<span id="cb147-5"><a href="faire-de-la-régression-sur-r.html#cb147-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(m,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
-<span id="cb147-6"><a href="faire-de-la-régression-sur-r.html#cb147-6"></a>df.test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
-<span id="cb147-7"><a href="faire-de-la-régression-sur-r.html#cb147-7"></a>df.test &lt;-<span class="st"> </span>df.test <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div></li>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="faire-de-la-régression-sur-r.html#cb148-1"></a>m &lt;-<span class="st"> </span><span class="dv">300</span></span>
+<span id="cb148-2"><a href="faire-de-la-régression-sur-r.html#cb148-2"></a>p &lt;-<span class="st"> </span><span class="dv">105</span></span>
+<span id="cb148-3"><a href="faire-de-la-régression-sur-r.html#cb148-3"></a><span class="kw">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb148-4"><a href="faire-de-la-régression-sur-r.html#cb148-4"></a>X.mat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">rnorm</span>(m<span class="op">*</span>p),<span class="dt">ncol=</span>p)</span>
+<span id="cb148-5"><a href="faire-de-la-régression-sur-r.html#cb148-5"></a>eps &lt;-<span class="st"> </span><span class="kw">rnorm</span>(m,<span class="dt">mean =</span> <span class="dv">0</span>,<span class="dt">sd=</span><span class="fl">0.5</span>)</span>
+<span id="cb148-6"><a href="faire-de-la-régression-sur-r.html#cb148-6"></a>df.test &lt;-<span class="st"> </span><span class="kw">data.frame</span>(X.mat,eps)</span>
+<span id="cb148-7"><a href="faire-de-la-régression-sur-r.html#cb148-7"></a>df.test &lt;-<span class="st"> </span>df.test <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Y=</span>X1<span class="op">+</span>X2<span class="op">+</span>X3<span class="op">+</span>X4<span class="op">+</span>X5<span class="op">+</span>eps) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span>eps)</span></code></pre></div></li>
 </ol>
 </div>
 <div id="régression-logistique-et-arbre" class="section level2">
 <h2><span class="header-section-number">6.3</span> Régression logistique et arbre</h2>
 <p>On considère le jeu de données <strong>spam</strong> disponible ici</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="faire-de-la-régression-sur-r.html#cb148-1"></a><span class="kw">library</span>(kernlab)</span>
-<span id="cb148-2"><a href="faire-de-la-régression-sur-r.html#cb148-2"></a><span class="kw">data</span>(spam)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="faire-de-la-régression-sur-r.html#cb149-1"></a><span class="kw">library</span>(kernlab)</span>
+<span id="cb149-2"><a href="faire-de-la-régression-sur-r.html#cb149-2"></a><span class="kw">data</span>(spam)</span></code></pre></div>
 <p>Le problème est d’expliquer la variable <code>type</code> (un email est un spam ou non) par les 57 autres variables.</p>
 <ol style="list-style-type: decimal">
 <li><p>Séparer les données en un échantillon d’apprentissage <code>dapp</code> de taille 3000 et un échantillon test <code>dtest</code> de taille 1601. On pourra utiliser la fonction <strong>sample</strong>.</p></li>

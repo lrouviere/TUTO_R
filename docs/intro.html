@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-09-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,14 +191,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ggplot2.html"><a href="ggplot2.html#la-fonction-plot"><i class="fa fa-check"></i><b>4.1.1</b> La fonction <strong>plot</strong></a></li>
 <li class="chapter" data-level="4.1.2" data-path="ggplot2.html"><a href="ggplot2.html#graphes-interactifs-avec-ramcharts"><i class="fa fa-check"></i><b>4.1.2</b> Graphes interactifs avec rAmCharts</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dplyr.html"><a href="dplyr.html#quelques-exercices"><i class="fa fa-check"></i><b>4.1.3</b> Quelques exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a><ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot2.html"><a href="ggplot2.html#premiers-graphes-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Premiers graphes <code>ggplot2</code></a></li>
 <li class="chapter" data-level="4.2.2" data-path="ggplot2.html"><a href="ggplot2.html#data-et-aesthetics"><i class="fa fa-check"></i><b>4.2.2</b> Data et aesthetics</a></li>
-<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> <code>Geometrics</code></a></li>
-<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> <code>Statistics</code></a></li>
-<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> <code>Scales</code></a></li>
-<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> <code>Group et facets</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> Geometrics</a></li>
+<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> Statistics</a></li>
+<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> Scales</a></li>
+<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> Group et facets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="ggplot2.html"><a href="ggplot2.html#compléments"><i class="fa fa-check"></i><b>4.3</b> Compléments</a></li>
 <li class="chapter" data-level="4.4" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-supplémentaires"><i class="fa fa-check"></i><b>4.4</b> Quelques exercices supplémentaires</a></li>
@@ -280,16 +281,14 @@ ou</li>
 
 <ol style="list-style-type: decimal">
 <li><p>Exécuter</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">mean_Petal=</span><span class="kw">mean</span>(Petal.Length))</span></code></pre></div></li>
-</ol>
-<p>Que se passe t-il ?</p>
-<ol start="2" style="list-style-type: decimal">
-<li>Installer et charger le package <strong>tidyverse</strong> et ré-executer le code précédent.</li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1"></a>iris <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">mean_Petal=</span><span class="kw">mean</span>(Petal.Length))</span></code></pre></div>
+<p>Que se passe t-il ?</p></li>
+<li><p>Installer et charger le package <strong>tidyverse</strong> et ré-executer le code précédent.</p></li>
 </ol>
 </div>
 <div id="markdown" class="section level2">
 <h2><span class="header-section-number">1.3</span> Markdown</h2>
-<p><strong>mardown</strong> est un package qui permet de créer différents types de documents :</p>
+<p><strong>markdown</strong> est un package qui permet de créer différents types de documents :</p>
 <ul>
 <li>rapports au format pdf ou rtf</li>
 <li>pages web html</li>

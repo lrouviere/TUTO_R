@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2020-09-11" />
+<meta name="date" content="2020-09-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,14 +191,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ggplot2.html"><a href="ggplot2.html#la-fonction-plot"><i class="fa fa-check"></i><b>4.1.1</b> La fonction <strong>plot</strong></a></li>
 <li class="chapter" data-level="4.1.2" data-path="ggplot2.html"><a href="ggplot2.html#graphes-interactifs-avec-ramcharts"><i class="fa fa-check"></i><b>4.1.2</b> Graphes interactifs avec rAmCharts</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dplyr.html"><a href="dplyr.html#quelques-exercices"><i class="fa fa-check"></i><b>4.1.3</b> Quelques exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a><ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot2.html"><a href="ggplot2.html#premiers-graphes-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Premiers graphes <code>ggplot2</code></a></li>
 <li class="chapter" data-level="4.2.2" data-path="ggplot2.html"><a href="ggplot2.html#data-et-aesthetics"><i class="fa fa-check"></i><b>4.2.2</b> Data et aesthetics</a></li>
-<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> <code>Geometrics</code></a></li>
-<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> <code>Statistics</code></a></li>
-<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> <code>Scales</code></a></li>
-<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> <code>Group et facets</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> Geometrics</a></li>
+<li class="chapter" data-level="4.2.4" data-path="ggplot2.html"><a href="ggplot2.html#statistics"><i class="fa fa-check"></i><b>4.2.4</b> Statistics</a></li>
+<li class="chapter" data-level="4.2.5" data-path="ggplot2.html"><a href="ggplot2.html#scales"><i class="fa fa-check"></i><b>4.2.5</b> Scales</a></li>
+<li class="chapter" data-level="4.2.6" data-path="ggplot2.html"><a href="ggplot2.html#group-et-facets"><i class="fa fa-check"></i><b>4.2.6</b> Group et facets</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="ggplot2.html"><a href="ggplot2.html#compléments"><i class="fa fa-check"></i><b>4.3</b> Compléments</a></li>
 <li class="chapter" data-level="4.4" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-supplémentaires"><i class="fa fa-check"></i><b>4.4</b> Quelques exercices supplémentaires</a></li>
@@ -243,15 +244,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introduction à R et à la modélisation statistique</h1>
 <p class="author"><em>Laurent Rouvière</em></p>
-<p class="date"><em>2020-09-11</em></p>
+<p class="date"><em>2020-09-26</em></p>
 </div>
 <div id="Presentation" class="section level1 unnumbered">
 <h1>Présentation</h1>
 <p>Ce tutoriel présente une introduction au logiciel R. On pourra trouver :</p>
 <ul>
-<li>les supports de cours associés à ce tutoriel ainsi que les données utilisées à l’adresse suivante <a href="https://lrouviere.github.io/ml_lecture/" class="uri">https://lrouviere.github.io/ml_lecture/</a> ;</li>
-<li>le tutoriel sans les correction à l’url <a href="https://lrouviere.github.io/TUTO_R/" class="uri">https://lrouviere.github.io/TUTO_R/</a></li>
-<li>le tutoriel avec les corrigés (à certains moment) à l’url <a href="https://lrouviere.github.io/TUTO_R//correction/" class="uri">https://lrouviere.github.io/TUTO_R//correction/</a>.</li>
+<li>les supports de cours associés à ce tutoriel ainsi que les données utilisées à l’adresse suivante <a href="https://lrouviere.github.io/intro_R/" class="uri">https://lrouviere.github.io/intro_R/</a> ;</li>
+<li>le tutoriel sans les corrections à l’url <a href="https://lrouviere.github.io/TUTO_R/" class="uri">https://lrouviere.github.io/TUTO_R/</a></li>
+<li>le tutoriel avec les corrigés (à certains moments) à l’url <a href="https://lrouviere.github.io/TUTO_R/correction/" class="uri">https://lrouviere.github.io/TUTO_R/correction/</a>.</li>
 </ul>
 <p>Il est recommandé d’utiliser <strong>mozilla firefox</strong> pour lire le tutoriel.</p>
 <p>Les thèmes suivants sont abordés :</p>
@@ -263,7 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Visualisation de données</strong> (représentations standards et avec <code>ggplot2</code>)</li>
 <li><strong>Cartes dynamiques</strong> avec <code>leaflet</code></li>
 <li><strong>Régression</strong> : ajustement de modèles, formules, prévisions…</li>
-<li><strong>Introduction au problème de l’estimation</strong>, lois de probabilités, notions d’estimateurs, performance d’estimateurs, intervalles de confiance.</li>
+<li><strong>Introduction au problème de l’estimation</strong> : lois de probabilités, notions d’estimateurs, performance d’estimateurs, intervalles de confiance.</li>
 </ul>
 <p>On pourra trouver des supports de cours ainsi que les données utilisées à l’adresse suivante <a href="https://lrouviere.github.io/intro_R/" class="uri">https://lrouviere.github.io/intro_R/</a>. Des compléments sur les outils du tidyverse pourront être consultés dans le très complet document de <span class="citation">Barnier (<a href="#ref-barnier20" role="doc-biblioref">2020</a>)</span> ainsi que les ouvrages de <span class="citation">Wickham and Grolemund (<a href="#ref-gro-wick17" role="doc-biblioref">2017</a>)</span> et de <span class="citation">Cornillon et al. (<a href="#ref-rstat18" role="doc-biblioref">2018</a>)</span>.</p>
 

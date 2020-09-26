@@ -5,3 +5,5 @@
 *.Rmd
 *.tex
 _bookdown_files/*
+*.R
+styles_markdown/
