@@ -6,4 +6,5 @@
 *.tex
 _bookdown_files/*
 *.R
+*R.log
 styles_markdown/
