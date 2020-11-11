@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapitre 7 Estimation et intervalles de confiance | Introduction à R et à la modélisation statistique</title>
   <meta name="description" content="Chapitre 7 Estimation et intervalles de confiance | Introduction à R et à la modélisation statistique" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapitre 7 Estimation et intervalles de confiance | Introduction à R et à la modélisation statistique" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2020-09-27" />
+<meta name="date" content="2020-11-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -51,7 +51,9 @@
 
 
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
 <script src="libs/amcharts-3.21.13/amcharts.js"></script>
 <script src="libs/ramcharts_base-binding-2.1.13/ramcharts_base.js"></script>
 <script src="libs/amcharts_type_serial-3.20.18/serial.js"></script>
@@ -191,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="ggplot2.html"><a href="ggplot2.html#la-fonction-plot"><i class="fa fa-check"></i><b>4.1.1</b> La fonction <strong>plot</strong></a></li>
 <li class="chapter" data-level="4.1.2" data-path="ggplot2.html"><a href="ggplot2.html#graphes-interactifs-avec-ramcharts"><i class="fa fa-check"></i><b>4.1.2</b> Graphes interactifs avec rAmCharts</a></li>
-<li class="chapter" data-level="4.1.3" data-path="dplyr.html"><a href="dplyr.html#quelques-exercices"><i class="fa fa-check"></i><b>4.1.3</b> Quelques exercices</a></li>
+<li class="chapter" data-level="4.1.3" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-1"><i class="fa fa-check"></i><b>4.1.3</b> Quelques exercices</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a><ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot2.html"><a href="ggplot2.html#premiers-graphes-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Premiers graphes <code>ggplot2</code></a></li>
@@ -216,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation et intervalles de confiance</a><ul>
 <li class="chapter" data-level="7.1" data-path="estimation.html"><a href="estimation.html#générer-des-observations-selon-des-lois-de-probabilités"><i class="fa fa-check"></i><b>7.1</b> Générer des observations selon des lois de probabilités</a></li>
 <li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#une-étude-numérique-de-la-moyenne-empirique."><i class="fa fa-check"></i><b>7.2</b> Une étude numérique de la moyenne empirique.</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="estimation.html"><a href="estimation.html#exemple."><i class="fa fa-check"></i><b>7.2.1</b> Exemple.</a></li>
+<li class="chapter" data-level="7.2.1" data-path="estimation.html"><a href="estimation.html#exemple"><i class="fa fa-check"></i><b>7.2.1</b> Exemple</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="estimation.html"><a href="estimation.html#intervalles-de-confiance"><i class="fa fa-check"></i><b>7.3</b> Intervalles de confiance</a></li>
 </ul></li>
@@ -291,22 +293,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>On pourra par exemple :</p>
 <ul>
-<li>Calculer la densité de la loi <span class="math inline">\(\mathcal N(0,1)\)</span> en -1,0,1 avec</li>
-</ul>
+<li><p>Calculer la densité de la loi <span class="math inline">\(\mathcal N(0,1)\)</span> en -1,0,1 avec</p>
 <div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="estimation.html#cb150-1"></a><span class="kw">dnorm</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>),<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="dv">1</span>)</span>
-<span id="cb150-2"><a href="estimation.html#cb150-2"></a>[<span class="dv">1</span>] <span class="fl">0.2419707</span> <span class="fl">0.3989423</span> <span class="fl">0.2419707</span></span></code></pre></div>
-<ul>
-<li>Calculer les quantiles d’ordre 0.05, 0.5 et 0.95 de la loi <span class="math inline">\(\mathcal N(0,1)\)</span> en -1,0,1 avec</li>
-</ul>
+<span id="cb150-2"><a href="estimation.html#cb150-2"></a>[<span class="dv">1</span>] <span class="fl">0.2419707</span> <span class="fl">0.3989423</span> <span class="fl">0.2419707</span></span></code></pre></div></li>
+<li><p>Calculer les quantiles d’ordre 0.05, 0.5 et 0.95 de la loi <span class="math inline">\(\mathcal N(0,1)\)</span> en -1,0,1 avec</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="estimation.html#cb151-1"></a><span class="kw">qnorm</span>(<span class="kw">c</span>(<span class="fl">0.05</span>,<span class="fl">0.5</span>,<span class="fl">0.95</span>),<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="dv">1</span>)</span>
-<span id="cb151-2"><a href="estimation.html#cb151-2"></a>[<span class="dv">1</span>] <span class="fl">-1.644854</span>  <span class="fl">0.000000</span>  <span class="fl">1.644854</span></span></code></pre></div>
-<ul>
-<li>Générer 10 observations selon une loi <span class="math inline">\(\mathcal N(0,1)\)</span> avec</li>
-</ul>
+<span id="cb151-2"><a href="estimation.html#cb151-2"></a>[<span class="dv">1</span>] <span class="fl">-1.644854</span>  <span class="fl">0.000000</span>  <span class="fl">1.644854</span></span></code></pre></div></li>
+<li><p>Générer 10 observations selon une loi <span class="math inline">\(\mathcal N(0,1)\)</span> avec</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="estimation.html#cb152-1"></a><span class="kw">rnorm</span>(<span class="dv">10</span>,<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="dv">1</span>)</span>
 <span id="cb152-2"><a href="estimation.html#cb152-2"></a> [<span class="dv">1</span>]  <span class="fl">0.20222019</span> <span class="fl">-1.19621049</span>  <span class="fl">0.04375938</span> <span class="fl">-0.05545961</span></span>
 <span id="cb152-3"><a href="estimation.html#cb152-3"></a> [<span class="dv">5</span>]  <span class="fl">1.08570925</span>  <span class="fl">1.76993522</span>  <span class="fl">1.98121980</span>  <span class="fl">0.67664960</span></span>
-<span id="cb152-4"><a href="estimation.html#cb152-4"></a> [<span class="dv">9</span>] <span class="fl">-1.00061208</span> <span class="fl">-0.31680937</span></span></code></pre></div>
+<span id="cb152-4"><a href="estimation.html#cb152-4"></a> [<span class="dv">9</span>] <span class="fl">-1.00061208</span> <span class="fl">-0.31680937</span></span></code></pre></div></li>
+</ul>
 
 <div class="exercise">
 <span id="exr:exo-loibinomiale" class="exercise"><strong>Exercice 7.1  (Loi binomiale)  </strong></span>
@@ -314,6 +312,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ol style="list-style-type: decimal">
 <li><p>Soit <span class="math inline">\(X\)</span> un variable de loi binomiale <span class="math inline">\(B(20,0.6)\)</span>. Calculer la probabilité que <span class="math inline">\(X\)</span> soit égale à 1,5,10,15.</p></li>
+<li><p>Pour la même loi calculer la probabilités :
+<span class="math display">\[\mathbf P(X\leq 13),\quad\mathbf P(X&gt;13),\quad \mathbf P(X\geq 13)\quad\text{et}\quad \mathbf P(X\in[8,15]).\]</span></p></li>
 <li><p>Représenter le diagramme en barre associé à la loi <span class="math inline">\(B(20,0.6)\)</span>. On pourra utiliser l’argument <strong>stat=“identity”</strong> dans la fonction <strong>geom_bar</strong>.</p></li>
 <li><p>Générer un échantillon de taille 5000 selon la loi <span class="math inline">\(B(20,0.6)\)</span>. Tracer le diagramme en barres associé à cet échantillon et comparer le à celui de la question précédente.</p></li>
 </ol>
@@ -324,16 +324,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <ol style="list-style-type: decimal">
 <li><p>Tracer la densité de la loi <span class="math inline">\(\mathcal N(0,1)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(X\)</span> une variable aléatoire de loi <span class="math inline">\(\mathcal N(2,2^2)\)</span> (variance 4, écart-type 2). Calculer les probabilités suivantes :
+<span class="math display">\[\mathbf P(X=2),\quad \mathbf P(X\leq 2),\quad \mathbf P(X&lt;2),\quad \mathbf P(X&gt;3).\]</span></p></li>
 <li><p>Générer un échantillon de taille 5000 selon la loi <span class="math inline">\(\mathcal N(0,1)\)</span>. Tracer l’histogramme associé à cet échantillon et comparer le à la densité tracée à la question précédente (on pourra supperposer les 2 représentations).</p></li>
 </ol>
 </div>
 <div id="une-étude-numérique-de-la-moyenne-empirique." class="section level2">
 <h2><span class="header-section-number">7.2</span> Une étude numérique de la moyenne empirique.</h2>
-<p>On s’intéresse dans cette partie à l’étude de la moyenne empirique
+<p>On considère un échantillon de <span class="math inline">\(x_1,\dots,x_n\)</span> i.i.d de loi uniforme sur <span class="math inline">\([a,b]\)</span> avec <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> supposés inconnus. Le problème est d’estimer l’espérance de cette loi uniforme
+<span class="math display">\[\mathbf E[X]=\frac{a+b}{2}.\]</span></p>
+<p>Un estimateur naturel est la moyenne empirique
 <span class="math display">\[\bar x_n=\frac{1}{n}\sum_{i=1}^nx_i\]</span>
-d’un échantillon i.i.d <span class="math inline">\(x_1,\dots,x_n\)</span>. Remarquons déjà que la moyenne empirique dépend des observations <span class="math inline">\(x_1,\dots,x_n\)</span> : la moyenne va donc changer lorsque les observations changent.</p>
-<div id="exemple." class="section level3">
-<h3><span class="header-section-number">7.2.1</span> Exemple.</h3>
+Remarquons déjà que la moyenne empirique dépend des observations <span class="math inline">\(x_1,\dots,x_n\)</span> : la moyenne va donc changer lorsque les observations changent.</p>
+<div id="exemple" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Exemple</h3>
+<p>Pour fixer les idées, on suppose dans cette partie que <span class="math inline">\(a=0\)</span> et <span class="math inline">\(b=1\)</span>. L’espréance à estier est donc 0.5 (on peut faire comme si on le la connaissait pas.)</p>
 <p>On considère deux échantillons de taille 20 générées selon une loi uniforme entre 0 et 1 :</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="estimation.html#cb153-1"></a>ech1 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">20</span>)</span>
 <span id="cb153-2"><a href="estimation.html#cb153-2"></a>ech2 &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">20</span>)</span>
@@ -342,17 +347,17 @@ d’un échantillon i.i.d <span class="math inline">\(x_1,\dots,x_n\)</span>. Re
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="estimation.html#cb154-1"></a>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise_all</span>(mean)</span>
 <span id="cb154-2"><a href="estimation.html#cb154-2"></a>       ech1      ech2</span>
 <span id="cb154-3"><a href="estimation.html#cb154-3"></a><span class="dv">1</span> <span class="fl">0.6333745</span> <span class="fl">0.4300223</span></span></code></pre></div>
-<p>La moyenne empirique peut-être considérée comme une variable aléatoire : elle va donc posséder une loi de probabilité, une espérance… Si on considère l’exemple précédent, on sent bien que la distribution de la moyenne empirique doit</p>
+<p>La moyenne empirique peut-être considérée comme une <strong>variable aléatoire</strong> : elle va donc posséder une loi de probabilité, une espérance… Si on considère l’exemple précédent, on sent bien que la distribution de la moyenne empirique doit</p>
 <ul>
 <li>se répartir autours de 0.5 (qui est la valeur à estimer).</li>
 <li>être de plus en plus concentrée autours de 0.5 lorsque le nombre d’observations <span class="math inline">\(n\)</span> augmente.</li>
 </ul>
-<p>On peut visualiser ce fait en</p>
+<p>On peut visualiser ce fait en considérant un grand nombre d’échantillon et en regardant comment se comporte les valeurs moyennes de chaque échantillon. Pour cela on</p>
 <ol style="list-style-type: decimal">
-<li><p>générant nombre <span class="math inline">\(B\)</span> (grand) d’échantillons de taille <span class="math inline">\(n=20\)</span> selon une loi uniforme entre 0 et 1.</p>
+<li><p>génère un nombre <span class="math inline">\(B\)</span> (grand) d’échantillons de taille <span class="math inline">\(n=20\)</span> selon une loi uniforme entre 0 et 1.</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="estimation.html#cb155-1"></a><span class="kw">set.seed</span>(<span class="dv">1234</span>)</span>
 <span id="cb155-2"><a href="estimation.html#cb155-2"></a>df &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">runif</span>(<span class="dv">20</span><span class="op">*</span><span class="dv">5000</span>),<span class="dt">nrow=</span><span class="dv">20</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">as.data.frame</span>()</span></code></pre></div></li>
-<li><p>calculant les moyennes obtenues pour chaque échantillon</p>
+<li><p>calcule les moyennes obtenues pour chaque échantillon</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="estimation.html#cb156-1"></a>moy &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize_all</span>(mean)</span>
 <span id="cb156-2"><a href="estimation.html#cb156-2"></a><span class="kw">head</span>(<span class="kw">t</span>(moy))</span>
 <span id="cb156-3"><a href="estimation.html#cb156-3"></a>        [,<span class="dv">1</span>]</span>
@@ -362,21 +367,21 @@ d’un échantillon i.i.d <span class="math inline">\(x_1,\dots,x_n\)</span>. Re
 <span id="cb156-7"><a href="estimation.html#cb156-7"></a>V4 <span class="fl">0.3740339</span></span>
 <span id="cb156-8"><a href="estimation.html#cb156-8"></a>V5 <span class="fl">0.4132300</span></span>
 <span id="cb156-9"><a href="estimation.html#cb156-9"></a>V6 <span class="fl">0.3734092</span></span></code></pre></div></li>
-<li><p>visualisant la distribution de la moyenne de chaque échantillon (en traçant l’histogramme de ces valeurs par exemple).</p>
+<li><p>visualise la distribution de la moyenne de chaque échantillon (en traçant l’histogramme de ces valeurs par exemple).</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="estimation.html#cb157-1"></a>moy &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">M=</span><span class="kw">t</span>(moy))</span>
 <span id="cb157-2"><a href="estimation.html#cb157-2"></a><span class="kw">ggplot</span>(moy)<span class="op">+</span><span class="kw">aes</span>(<span class="dt">x=</span>M,<span class="dt">y=</span>..density..)<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">20</span>)<span class="op">+</span><span class="kw">theme_classic</span>()</span></code></pre></div>
-<p><img src="TUTO_R_files/figure-html/unnamed-chunk-205-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="TUTO_R_files/figure-html/unnamed-chunk-219-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 </ol>
-<p>Le théorème central limite nous dit que cette moyenne <span class="math inline">\(\bar X_n\)</span> vérifie
-<span class="math display">\[\sqrt{n}\frac{\bar X_n-\mu}{\sigma}\to \mathcal N(0,1)\]</span>
+<p>On voit que cette distribution semble se comporter comme une <strong>distribution gaussienne</strong> autours de la vraie valeur (0.5). Le théorème central limite confirme (et surtout prouve) ce constat. En effet, le théorème central limite nous dit que cette moyenne <span class="math inline">\(\bar x_n\)</span> vérifie
+<span class="math display">\[\sqrt{n}\frac{\bar x_n-\mu}{\sigma}\to \mathcal N(0,1)\]</span>
 avec <span class="math inline">\(\mu=0.5\)</span> et <span class="math inline">\(\sigma=1/\sqrt{12}\)</span> ici. On a donc
 <span class="math display">\[\sqrt{n}\frac{\bar X_n-0.5}{1/\sqrt{12}}\to \mathcal N(0,1)\]</span>
-Ce qui signifie qu’on peut approcher la loi de <span class="math inline">\(\bar X_n\)</span> par la loi <span class="math inline">\(\mathcal N(0.5,1/(12n))\)</span> avec <span class="math inline">\(n=20\)</span>.</p>
+Ce qui signifie qu’on peut approcher la loi de <span class="math inline">\(\bar X_n\)</span> par la loi <span class="math inline">\(\mathcal N(0.5,1/(12n))\)</span> avec <span class="math inline">\(n=20\)</span>. On le retrouve sur notre exemple en supperposant cette distribution gaussienne sur l’histogramme</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="estimation.html#cb158-1"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.25</span>,<span class="fl">0.75</span>,<span class="dt">by=</span><span class="fl">0.001</span>)</span>
 <span id="cb158-2"><a href="estimation.html#cb158-2"></a>df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x=</span>x,<span class="dt">y=</span><span class="kw">dnorm</span>(x,<span class="fl">0.5</span>,<span class="dv">1</span><span class="op">/</span>(<span class="kw">sqrt</span>(<span class="dv">12</span><span class="op">*</span><span class="dv">20</span>))))</span>
 <span id="cb158-3"><a href="estimation.html#cb158-3"></a><span class="kw">ggplot</span>(moy)<span class="op">+</span><span class="kw">aes</span>(<span class="dt">x=</span>M,<span class="dt">y=</span>..density..)<span class="op">+</span><span class="kw">geom_histogram</span>(<span class="dt">bins=</span><span class="dv">20</span>)<span class="op">+</span></span>
-<span id="cb158-4"><a href="estimation.html#cb158-4"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df,<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y),<span class="dt">color=</span><span class="st">&quot;red&quot;</span>,<span class="dt">size=</span><span class="dv">2</span>)<span class="op">+</span><span class="kw">theme_classic</span>()<span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;x&quot;</span>)</span></code></pre></div>
-<p><img src="TUTO_R_files/figure-html/unnamed-chunk-206-1.png" width="672" style="display: block; margin: auto;" /></p>
+<span id="cb158-4"><a href="estimation.html#cb158-4"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data=</span>df,<span class="kw">aes</span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y),<span class="dt">color=</span><span class="st">&quot;red&quot;</span>,<span class="dt">size=</span><span class="dv">2</span>)<span class="op">+</span><span class="kw">xlab</span>(<span class="st">&quot;x&quot;</span>)</span></code></pre></div>
+<p><img src="TUTO_R_files/figure-html/unnamed-chunk-220-1.png" width="672" style="display: block; margin: auto;" /></p>
 
 <div class="exercise">
 <span id="exr:exo-TCL" class="exercise"><strong>Exercice 7.3  (Théorème central limite)  </strong></span>
@@ -389,6 +394,10 @@ Ce qui signifie qu’on peut approcher la loi de <span class="math inline">\(\ba
 </div>
 
 <p>Faire le même exercice pour une loi gaussienne <span class="math inline">\(\mathcal N(1,2)\)</span> et une loi de Bernoulli <span class="math inline">\(\mathcal B(0.6)\)</span>.</p>
+<ul>
+<li></li>
+<li></li>
+</ul>
 </div>
 </div>
 <div id="intervalles-de-confiance" class="section level2">
