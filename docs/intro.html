@@ -265,11 +265,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="packages" class="section level2">
 <h2><span class="header-section-number">1.2</span> Packages</h2>
-<p>Un package est une ensemble de programmes et fonctions <strong>R</strong> qui complètent les fonctions existantes par défaut dans le logiciel. Un package est généralement dédié à une méthode ou un champ d’application spécifique. Il existe plus de 13 000 packages disponibles sur le <strong>CRAN</strong> <a href="https://cran.r-project.org">https://cran.r-project.org</a>. On installe un package en</p>
+<p>Un package est une ensemble de programmes et fonctions <strong>R</strong> qui complètent les fonctions existantes par défaut dans le logiciel. Un package est généralement dédié à une méthode ou un champ d’application spécifique. Il existe plus de 18 000 packages disponibles sur le <strong>CRAN</strong> <a href="https://cran.r-project.org">https://cran.r-project.org</a>. On installe un package en</p>
 <ul>
 <li>utilisant le fonction <strong>install.packages</strong> dans la console.
 ou</li>
-<li>ou cliquant sur le bouton <em>Packages</em>.</li>
+<li>ou cliquant sur le bouton <strong>Packages</strong>.</li>
 </ul>
 <p>Une fois le package installé sur la machine, on l’installe avec la fonction <strong>library</strong> :</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1"></a><span class="kw">install.packages</span>(package.name)</span>
@@ -290,16 +290,16 @@ ou</li>
 <h2><span class="header-section-number">1.3</span> Markdown</h2>
 <p><strong>markdown</strong> est un package qui permet de créer différents types de documents :</p>
 <ul>
-<li>rapports au format pdf ou rtf</li>
-<li>pages web html</li>
-<li>diaporama pour des présentations (html, beamer, PowerPoint…)</li>
+<li>rapports au format <strong>pdf</strong> ou <strong>rtf</strong></li>
+<li>pages web <strong>html</strong></li>
+<li>diaporama pour des présentations (<strong>html</strong>, <strong>beamer</strong>, <strong>PowerPoint</strong>…)</li>
 <li>applications web interactives</li>
 <li>…</li>
 </ul>
 <p>qui comportent du code <strong>R</strong>.</p>
 <div id="syntaxe" class="section level3">
 <h3><span class="header-section-number">1.3.1</span> Syntaxe</h3>
-<p>La syntaxe s’apprend assez facilement (il faut pratiquer), on pourra trouver un descriptif synthétique dans la <a href="https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf">cheatsheet</a> dédié à <strong>Rmarkdown</strong>. Par exemple :</p>
+<p>La syntaxe s’apprend assez facilement (il faut pratiquer), on pourra trouver un descriptif synthétique dans la <a href="https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf"><strong>cheatsheet</strong></a> dédiée à <strong>Rmarkdown</strong>. Par exemple :</p>
 <ul>
 <li><p>Caractère en italique ou gras : <code>*italique*</code> et <code>**gras**</code> donne <em>italique</em> et <strong>gras</strong></p></li>
 <li><p>Listes non ordonnées</p>
@@ -413,19 +413,17 @@ ou</li>
 </div>
 
 <ol style="list-style-type: decimal">
-<li>Créer 2 diapositives :</li>
-</ol>
+<li>Créer 2 diapositives :
 <ul>
 <li>Titre: <strong>Cosinus</strong> où on tracera la fonction cosinus.</li>
 <li>Titre: <strong>Sinus</strong> où on tracera la fonction sinus.</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>En modifiant les options des chunks modifier les diapositives de manière à</li>
-</ol>
+</ul></li>
+<li>En modifiant les options des chunks modifier les diapositives de manière à
 <ul>
 <li>ne pas voir le code R mais voir les graphiques</li>
 <li>voir uniquement le code R mais pas les graphiques.</li>
-</ul>
+</ul></li>
+</ol>
 </div>
 <div id="exemples-de-styles-de-documents-markdown" class="section level3">
 <h3><span class="header-section-number">1.3.5</span> Exemples de styles de documents markdown</h3>
@@ -436,7 +434,7 @@ ou</li>
 <span id="cb11-4"><a href="intro.html#cb11-4"></a>date: &quot;6/18/2020&quot;</span>
 <span id="cb11-5"><a href="intro.html#cb11-5"></a>output: html_document</span>
 <span id="cb11-6"><a href="intro.html#cb11-6"></a>---</span></code></pre></div>
-<p>Il existe tout un tas d’options qui vont permettre d’améliorer le document final. On peut par exemple ajouter une table des matières avec</p>
+<p>Il existe un grand nombre d’options qui permettent d’améliorer le document final. On peut par exemple ajouter une table des matières avec</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="intro.html#cb12-1"></a>output:</span>
 <span id="cb12-2"><a href="intro.html#cb12-2"></a>  html_document:</span>
 <span id="cb12-3"><a href="intro.html#cb12-3"></a><span class="bn">    toc: true</span></span></code></pre></div>

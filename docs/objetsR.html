@@ -307,31 +307,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.2</span> Vecteur</h2>
 <p>On peut définir un vecteur de plusieurs façons :</p>
 <ul>
-<li>fonction collect <code>c</code></li>
-</ul>
+<li><p>fonction collect <code>c</code></p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="objetsR.html#cb21-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.2</span>,<span class="dv">5</span>,<span class="dv">9</span>,<span class="dv">11</span>)</span>
 <span id="cb21-2"><a href="objetsR.html#cb21-2"></a>x</span>
-<span id="cb21-3"><a href="objetsR.html#cb21-3"></a>[<span class="dv">1</span>]  <span class="fl">1.2</span>  <span class="fl">5.0</span>  <span class="fl">9.0</span> <span class="fl">11.0</span></span></code></pre></div>
-<ul>
-<li>opérateur séquence <code>:</code></li>
-</ul>
+<span id="cb21-3"><a href="objetsR.html#cb21-3"></a>[<span class="dv">1</span>]  <span class="fl">1.2</span>  <span class="fl">5.0</span>  <span class="fl">9.0</span> <span class="fl">11.0</span></span></code></pre></div></li>
+<li><p>opérateur séquence <code>:</code></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="objetsR.html#cb22-1"></a><span class="dv">1</span><span class="op">:</span><span class="dv">5</span></span>
-<span id="cb22-2"><a href="objetsR.html#cb22-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></span></code></pre></div>
-<ul>
-<li>fonction séquence <code>seq</code></li>
-</ul>
+<span id="cb22-2"><a href="objetsR.html#cb22-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></span></code></pre></div></li>
+<li><p>fonction séquence <code>seq</code></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="objetsR.html#cb23-1"></a><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dt">by=</span><span class="dv">2</span>)</span>
 <span id="cb23-2"><a href="objetsR.html#cb23-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">3</span> <span class="dv">5</span> <span class="dv">7</span> <span class="dv">9</span></span>
 <span id="cb23-3"><a href="objetsR.html#cb23-3"></a><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">length=</span><span class="dv">10</span>)</span>
 <span id="cb23-4"><a href="objetsR.html#cb23-4"></a> [<span class="dv">1</span>] <span class="fl">0.0000000</span> <span class="fl">0.1111111</span> <span class="fl">0.2222222</span> <span class="fl">0.3333333</span> <span class="fl">0.4444444</span></span>
-<span id="cb23-5"><a href="objetsR.html#cb23-5"></a> [<span class="dv">6</span>] <span class="fl">0.5555556</span> <span class="fl">0.6666667</span> <span class="fl">0.7777778</span> <span class="fl">0.8888889</span> <span class="fl">1.0000000</span></span></code></pre></div>
-<ul>
-<li>fonction <code>rep</code></li>
-</ul>
+<span id="cb23-5"><a href="objetsR.html#cb23-5"></a> [<span class="dv">6</span>] <span class="fl">0.5555556</span> <span class="fl">0.6666667</span> <span class="fl">0.7777778</span> <span class="fl">0.8888889</span> <span class="fl">1.0000000</span></span></code></pre></div></li>
+<li><p>fonction <code>rep</code></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="objetsR.html#cb24-1"></a><span class="kw">rep</span>(<span class="dv">1</span>,<span class="dv">4</span>)</span>
 <span id="cb24-2"><a href="objetsR.html#cb24-2"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span></span>
 <span id="cb24-3"><a href="objetsR.html#cb24-3"></a><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>),<span class="dt">each=</span><span class="dv">3</span>)</span>
-<span id="cb24-4"><a href="objetsR.html#cb24-4"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span></span></code></pre></div>
+<span id="cb24-4"><a href="objetsR.html#cb24-4"></a>[<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">3</span> <span class="dv">3</span></span></code></pre></div></li>
+</ul>
 <p>On peut aussi créer des vecteurs <strong>caractère</strong> ou <strong>logique</strong></p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="objetsR.html#cb25-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>)</span>
 <span id="cb25-2"><a href="objetsR.html#cb25-2"></a>x &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;A&quot;</span>,<span class="dv">5</span>)</span>
@@ -379,9 +373,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb29-3"><a href="objetsR.html#cb29-3"></a>vec3 = 1 1 2 2 2 3 3 3 3 4 4 4 4 4</span></code></pre></div></li>
 <li><p>Créer le vecteur suivant à l’aide de la fonction <strong>paste</strong>.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb30-1"><a href="objetsR.html#cb30-1"></a>vec4 = &quot;A0)&quot; &quot;A1)&quot; &quot;A2)&quot; &quot;A3)&quot; &quot;A4)&quot; &quot;A5)&quot; &quot;A6)&quot; &quot;A7)&quot; &quot;A8)&quot; &quot;A9)&quot; &quot;A10)&quot;</span></code></pre></div></li>
-<li><p><strong>letters</strong> est un vecteur qui contient les 26 lettres de l’alphabet.</p>
+<li><p><code>letters</code> est un vecteur qui contient les 26 lettres de l’alphabet.</p>
 <ol style="list-style-type: lower-alpha">
-<li><p>Trouver le numéro de la lettre <span class="math inline">\(q\)</span> (sans compter avec les mains !). On pourra utiliser la fonction <strong>which</strong>.</p></li>
+<li><p>Trouver le numéro de la lettre <span class="math inline">\(q\)</span> (sans compter “avec les doigts” !). On pourra utiliser la fonction <strong>which</strong>.</p></li>
 <li><p>Créer le vecteur “a1”,“b2”,<span class="math inline">\(\dots\)</span> jusqu’à <span class="math inline">\(q\)</span> et son index.</p></li>
 </ol></li>
 </ol>
