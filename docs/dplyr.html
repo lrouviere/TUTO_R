@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2021-09-22" />
+<meta name="date" content="2021-09-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -835,7 +835,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb81-17"><a href="dplyr.html#cb81-17"></a><span class="co"># … with 278 more rows</span></span></code></pre></div>
 <p>Il sera alors aisé de faire le boxplot souhaité avec</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="dplyr.html#cb82-1"></a><span class="kw">ggplot</span>(df1)<span class="op">+</span><span class="kw">aes</span>(<span class="dt">x=</span>Année,<span class="dt">y=</span>TCHOM)<span class="op">+</span><span class="kw">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="TUTO_R_files/figure-html/unnamed-chunk-141-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="TUTO_R_files/figure-html/unnamed-chunk-142-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>L’opération inverse peut être effectuée avec <strong>pivot_wider</strong> :</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="dplyr.html#cb83-1"></a>df1 <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pivot_wider</span>(<span class="dt">names_from=</span><span class="st">&quot;Année&quot;</span>,<span class="dt">values_from=</span><span class="st">&quot;TCHOM&quot;</span>)</span>
 <span id="cb83-2"><a href="dplyr.html#cb83-2"></a><span class="co"># A tibble: 96 x 4</span></span>
