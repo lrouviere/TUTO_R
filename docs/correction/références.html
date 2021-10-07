@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Références | Introduction à R et à la modélisation statistique</title>
   <meta name="description" content="Références | Introduction à R et à la modélisation statistique" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Références | Introduction à R et à la modélisation statistique" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Laurent Rouvière" />
 
 
-<meta name="date" content="2021-09-26" />
+<meta name="date" content="2021-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,9 @@
   
 <link rel="prev" href="estimation.html"/>
 
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,9 +51,9 @@
 
 
 
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
 <script src="libs/amcharts-3.21.13/amcharts.js"></script>
 <script src="libs/ramcharts_base-binding-2.1.13/ramcharts_base.js"></script>
 <script src="libs/amcharts_type_serial-3.20.18/serial.js"></script>
@@ -65,21 +67,32 @@
 <script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
 <script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
 <script src="libs/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+<link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+<script src="libs/vis-9.1.0/vis-network.min.js"></script>
+<script src="libs/visNetwork-binding-2.1.0/visNetwork.js"></script>
+<script src="libs/FileSaver-1.1.20151003/FileSaver.min.js"></script>
+<script src="libs/Blob-1.0/Blob.js"></script>
+<script src="libs/canvas-toBlob-1.0/canvas-toBlob.js"></script>
+<script src="libs/html2canvas-0.5.0/html2canvas.js"></script>
+<script src="libs/jspdf-1.3.2/jspdf.debug.js"></script>
+<link href="libs/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
+<script src="libs/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+<script src="libs/sparkline-binding-2.0/sparkline.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -99,7 +112,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -132,6 +145,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
@@ -149,10 +185,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Présentation</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-script"><i class="fa fa-check"></i><b>1.1</b> R Script</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>1.2</b> Packages</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#markdown"><i class="fa fa-check"></i><b>1.3</b> Markdown</a><ul>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#markdown"><i class="fa fa-check"></i><b>1.3</b> Markdown</a>
+<ul>
 <li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#syntaxe"><i class="fa fa-check"></i><b>1.3.1</b> Syntaxe</a></li>
 <li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#les-chunks"><i class="fa fa-check"></i><b>1.3.2</b> Les chunks</a></li>
 <li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#notebook"><i class="fa fa-check"></i><b>1.3.3</b> Notebook</a></li>
@@ -160,14 +198,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.5" data-path="intro.html"><a href="intro.html#exemples-de-styles-de-documents-markdown"><i class="fa fa-check"></i><b>1.3.5</b> Exemples de styles de documents markdown</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="objetsR.html"><a href="objetsR.html"><i class="fa fa-check"></i><b>2</b> Les objets R</a><ul>
-<li class="chapter" data-level="2.1" data-path="objetsR.html"><a href="objetsR.html#création-dobjets"><i class="fa fa-check"></i><b>2.1</b> Création d’objets</a><ul>
+<li class="chapter" data-level="2" data-path="objetsR.html"><a href="objetsR.html"><i class="fa fa-check"></i><b>2</b> Les objets R</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="objetsR.html"><a href="objetsR.html#création-dobjets"><i class="fa fa-check"></i><b>2.1</b> Création d’objets</a>
+<ul>
 <li class="chapter" data-level="2.1.1" data-path="objetsR.html"><a href="objetsR.html#numérique"><i class="fa fa-check"></i><b>2.1.1</b> Numérique</a></li>
 <li class="chapter" data-level="2.1.2" data-path="objetsR.html"><a href="objetsR.html#caractère"><i class="fa fa-check"></i><b>2.1.2</b> Caractère</a></li>
 <li class="chapter" data-level="2.1.3" data-path="objetsR.html"><a href="objetsR.html#facteur"><i class="fa fa-check"></i><b>2.1.3</b> Facteur</a></li>
 <li class="chapter" data-level="2.1.4" data-path="objetsR.html"><a href="objetsR.html#logique-booléen"><i class="fa fa-check"></i><b>2.1.4</b> Logique (Booléen)</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="objetsR.html"><a href="objetsR.html#vecteur"><i class="fa fa-check"></i><b>2.2</b> Vecteur</a><ul>
+<li class="chapter" data-level="2.2" data-path="objetsR.html"><a href="objetsR.html#vecteur"><i class="fa fa-check"></i><b>2.2</b> Vecteur</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="objetsR.html"><a href="objetsR.html#sélectionner-une-partie-dun-vecteur"><i class="fa fa-check"></i><b>2.2.1</b> Sélectionner une partie d’un vecteur</a></li>
 <li class="chapter" data-level="2.2.2" data-path="objetsR.html"><a href="objetsR.html#opérations-sur-les-vecteurs"><i class="fa fa-check"></i><b>2.2.2</b> Opérations sur les vecteurs</a></li>
 </ul></li>
@@ -177,9 +218,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.6" data-path="objetsR.html"><a href="objetsR.html#quelques-fonctions-importantes"><i class="fa fa-check"></i><b>2.6</b> Quelques fonctions importantes</a></li>
 <li class="chapter" data-level="2.7" data-path="objetsR.html"><a href="objetsR.html#exercices-complémentaires"><i class="fa fa-check"></i><b>2.7</b> Exercices complémentaires</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3</b> Manipuler les données avec dplyr</a><ul>
+<li class="chapter" data-level="3" data-path="dplyr.html"><a href="dplyr.html"><i class="fa fa-check"></i><b>3</b> Manipuler les données avec dplyr</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="dplyr.html"><a href="dplyr.html#importer-des-données"><i class="fa fa-check"></i><b>3.1</b> Importer des données</a></li>
-<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html#le-package-dplyr"><i class="fa fa-check"></i><b>3.2</b> Le package dplyr</a><ul>
+<li class="chapter" data-level="3.2" data-path="dplyr.html"><a href="dplyr.html#le-package-dplyr"><i class="fa fa-check"></i><b>3.2</b> Le package dplyr</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="dplyr.html"><a href="dplyr.html#les-principaux-verbres-dplyr"><i class="fa fa-check"></i><b>3.2.1</b> Les principaux verbres dplyr</a></li>
 <li class="chapter" data-level="3.2.2" data-path="dplyr.html"><a href="dplyr.html#les-verbes-summarize-et-groub_by"><i class="fa fa-check"></i><b>3.2.2</b> Les verbes <code>summarize</code> et <code>groub_by</code></a></li>
 <li class="chapter" data-level="3.2.3" data-path="dplyr.html"><a href="dplyr.html#assembler-des-verbes-avec-lopérateur-de-chainage"><i class="fa fa-check"></i><b>3.2.3</b> Assembler des verbes avec l’opérateur de chainage <code>%&gt;%</code></a></li>
@@ -187,13 +230,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2.5" data-path="dplyr.html"><a href="dplyr.html#compléments-tidy-data-avec-tidyr"><i class="fa fa-check"></i><b>3.2.5</b> Compléments : Tidy data avec tidyr</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>4</b> Visualisation avec ggplot2</a><ul>
-<li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a><ul>
+<li class="chapter" data-level="4" data-path="ggplot2.html"><a href="ggplot2.html"><i class="fa fa-check"></i><b>4</b> Visualisation avec ggplot2</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ggplot2.html"><a href="ggplot2.html#fonctions-graphiques-conventionnelles"><i class="fa fa-check"></i><b>4.1</b> Fonctions graphiques conventionnelles</a>
+<ul>
 <li class="chapter" data-level="4.1.1" data-path="ggplot2.html"><a href="ggplot2.html#la-fonction-plot"><i class="fa fa-check"></i><b>4.1.1</b> La fonction <strong>plot</strong></a></li>
 <li class="chapter" data-level="4.1.2" data-path="ggplot2.html"><a href="ggplot2.html#graphes-interactifs-avec-ramcharts"><i class="fa fa-check"></i><b>4.1.2</b> Graphes interactifs avec rAmCharts</a></li>
 <li class="chapter" data-level="4.1.3" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-1"><i class="fa fa-check"></i><b>4.1.3</b> Quelques exercices</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a><ul>
+<li class="chapter" data-level="4.2" data-path="ggplot2.html"><a href="ggplot2.html#la-grammaire-ggplot2"><i class="fa fa-check"></i><b>4.2</b> La grammaire <strong>ggplot2</strong></a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="ggplot2.html"><a href="ggplot2.html#premiers-graphes-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Premiers graphes <code>ggplot2</code></a></li>
 <li class="chapter" data-level="4.2.2" data-path="ggplot2.html"><a href="ggplot2.html#data-et-aesthetics"><i class="fa fa-check"></i><b>4.2.2</b> Data et aesthetics</a></li>
 <li class="chapter" data-level="4.2.3" data-path="ggplot2.html"><a href="ggplot2.html#geometrics"><i class="fa fa-check"></i><b>4.2.3</b> Geometrics</a></li>
@@ -204,18 +250,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="ggplot2.html"><a href="ggplot2.html#compléments"><i class="fa fa-check"></i><b>4.3</b> Compléments</a></li>
 <li class="chapter" data-level="4.4" data-path="ggplot2.html"><a href="ggplot2.html#quelques-exercices-supplémentaires"><i class="fa fa-check"></i><b>4.4</b> Quelques exercices supplémentaires</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>5</b> Faire des cartes interactives avec leaflet</a><ul>
+<li class="chapter" data-level="5" data-path="leaflet.html"><a href="leaflet.html"><i class="fa fa-check"></i><b>5</b> Faire des cartes interactives avec leaflet</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="leaflet.html"><a href="leaflet.html#présentation-de-leaflet"><i class="fa fa-check"></i><b>5.1</b> Présentation de leaflet</a></li>
 <li class="chapter" data-level="5.2" data-path="leaflet.html"><a href="leaflet.html#challenge-visualisation-des-stations-velib-à-paris"><i class="fa fa-check"></i><b>5.2</b> Challenge : Visualisation des stations velib à Paris</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html"><i class="fa fa-check"></i><b>6</b> Faire de la régression sur R</a><ul>
+<li class="chapter" data-level="6" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html"><i class="fa fa-check"></i><b>6</b> Faire de la régression sur R</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#modèle-linéaire-fonctions-lm-et-predict"><i class="fa fa-check"></i><b>6.1</b> Modèle linéaire : fonctions lm et predict</a></li>
 <li class="chapter" data-level="6.2" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#sélection-de-variables"><i class="fa fa-check"></i><b>6.2</b> Sélection de variables</a></li>
 <li class="chapter" data-level="6.3" data-path="faire-de-la-régression-sur-r.html"><a href="faire-de-la-régression-sur-r.html#régression-logistique-et-arbre"><i class="fa fa-check"></i><b>6.3</b> Régression logistique et arbre</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation et intervalles de confiance</a><ul>
+<li class="chapter" data-level="7" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>7</b> Estimation et intervalles de confiance</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="estimation.html"><a href="estimation.html#générer-des-observations-selon-des-lois-de-probabilités"><i class="fa fa-check"></i><b>7.1</b> Générer des observations selon des lois de probabilités</a></li>
-<li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#une-étude-numérique-de-la-moyenne-empirique."><i class="fa fa-check"></i><b>7.2</b> Une étude numérique de la moyenne empirique.</a><ul>
+<li class="chapter" data-level="7.2" data-path="estimation.html"><a href="estimation.html#une-étude-numérique-de-la-moyenne-empirique."><i class="fa fa-check"></i><b>7.2</b> Une étude numérique de la moyenne empirique.</a>
+<ul>
 <li class="chapter" data-level="7.2.1" data-path="estimation.html"><a href="estimation.html#exemple"><i class="fa fa-check"></i><b>7.2.1</b> Exemple</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="estimation.html"><a href="estimation.html#intervalles-de-confiance"><i class="fa fa-check"></i><b>7.3</b> Intervalles de confiance</a></li>
@@ -244,15 +294,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="références" class="section level1 unnumbered">
 <h1>Références</h1>
 
-<div id="refs" class="references">
-<div>
-<p>Barnier, J. 2020. <em>Introduction à R et Au Tidyverse</em>. <a href="https://juba.github.io/tidyverse/index.html">https://juba.github.io/tidyverse/index.html</a>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Barnier, J. 2020. <em>Introduction à r Et Au Tidyverse</em>. <a href="https://juba.github.io/tidyverse/index.html">https://juba.github.io/tidyverse/index.html</a>.
 </div>
-<div>
-<p>Cornillon, P. A., A. Guyader, F. Husson, N. Jégou, J. Josse, N. Klutchnikoff, E. Le Pennec, E. Matzner-Løber, L. Rouvière, and B. Thieurmel. 2018. <em>R Pour La Statistique et La Science Des Données</em>. PUR. <a href="https://r-stat-sc-donnees.github.io">https://r-stat-sc-donnees.github.io</a>.</p>
+<div class="csl-entry">
+Cornillon, P. A., A. Guyader, F. Husson, N. Jégou, J. Josse, N. Klutchnikoff, E. Le Pennec, E. Matzner-Løber, L. Rouvière, and B. Thieurmel. 2018. <em>R Pour La Statistique Et La Science Des Données</em>. PUR. <a href="https://r-stat-sc-donnees.github.io">https://r-stat-sc-donnees.github.io</a>.
 </div>
-<div>
-<p>Wickham, A., and G. Grolemund. 2017. <em>R for Data Science</em>. O’Reilly. <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.</p>
+<div class="csl-entry">
+Wickham, A., and G. Grolemund. 2017. <em>R for Data Science</em>. O’Reilly. <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.
 </div>
 </div>
 </div>
@@ -266,7 +316,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -285,6 +334,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -305,6 +355,10 @@ gitbook.start({
 "text": null
 },
 "download": ["TUTO_R.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection",
 "sharing": {

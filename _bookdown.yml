@@ -1,6 +1,7 @@
 book_filename: "TUTO_R"
 delete_merged_file: true
 #output_dir: "docs" #sujet
+new_session: no
 output_dir: "docs/correction" #corrigé
 language:
   ui:
