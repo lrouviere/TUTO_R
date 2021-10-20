@@ -24,12 +24,14 @@ exr:exo-stat2
 tab:scales
 exr:exo-cos-sin
 exr:exo-mtcars
+exr:ggplot-reg-simple
 exr:ggplot-challenge
 exr:exo-carto-popup-leaflet
 exr:exo-loibinomiale
 exr:exo-loinormale
 exr:exo-TCL
 exr:exo-TCL2
+exr:exo-ICgaussienne
 exr:exo-ICiris
 exr:exo-ICproportion
 exr:exo-ICproportion2
