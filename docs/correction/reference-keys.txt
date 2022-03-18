@@ -20,6 +20,7 @@ exr:exoggplot1
 tab:geom
 exr:exoggplot2
 tab:ggplot-stat
+exr:exo-stat1
 exr:exo-stat2
 tab:scales
 exr:exo-cos-sin
